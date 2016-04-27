@@ -1,0 +1,11 @@
+<div class="doc-title">
+  <h1>{{jsonExample.title}}</h1>
+  {{#each jsonExample.nodes}}
+    <h2>{{this.title}}</h2>
+    {{#each this.nodes}}
+      <ul>
+      <li>{{this.title}}</li>
+      </ul>
+    {{/each}}
+  {{/each}}
+</div>
