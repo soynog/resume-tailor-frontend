@@ -37,8 +37,8 @@ let renderJSON = function(){
 };
 
 let renderNavBar = function(){
-  let navBarTemplate = require('./templates/navbar-template.handlebars');
-  $('.navbar-container').append(navBarTemplate());
+  let navBar = require('./templates/navbar.handlebars');
+  $('.navbar-container').append(navBar());
 };
 
 $(document).ready(function(){
