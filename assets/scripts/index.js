@@ -19,14 +19,14 @@ let renderNavBar = function(){
   $('.navbar-container').append(navBar());
 };
 
-let renderModal = function(){
-  let modal = require('./templates/login-modal.handlebars');
-  $('.modal-container').append(modal());
+let renderModals = function(){
+  let modals = require('./templates/modals.handlebars');
+  $('.modal-container').append(modals());
 };
 
 $(document).ready(function(){
   renderNavBar();
   renderJSON(jsonExample);
-  renderModal();
+  renderModals();
   authEvents.addHandlers();
 });

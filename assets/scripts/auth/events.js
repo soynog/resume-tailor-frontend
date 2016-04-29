@@ -6,18 +6,21 @@ const authApi = require('./api');
 const authUi = require('./ui');
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', function (event) {
-    let data = getFormFields(this);
+  $('#sign-up-form').on('submit', function (event) {
     event.preventDefault();
-    authApi.signUp(authUi.success, authUi.failure, data);
+    let data = getFormFields(this);
+    console.log(data);
+    authApi.signUp( authApi.signIn( authUi.signUpSuccess,
+                                    authUi.failure, data),
+                    authUi.failure, data);
   });
-  $('#sign-in').on('submit', function (event) {
+  $('#sign-in-form').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
     console.log(data);
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
-  $('#sign-out').on('submit', function (event) {
+  $('#sign-out-button').on('click', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
   });

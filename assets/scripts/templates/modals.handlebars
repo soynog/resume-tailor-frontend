@@ -1,0 +1,47 @@
+<!-- SIGN-IN MODAL -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-in-form">
+          <input type="text" name="credentials[email]" placeholder="Email Address">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" class="login loginmodal-submit" value="Sign In" data-toggle="modal" data-target="#sign-in-modal">
+        </form>
+      </div>
+      <div class="modal-footer">
+        Don't have an account?
+        <a href="#" data-toggle="modal" data-target="#sign-up-modal, #sign-in-modal">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SIGN-IN MODAL -->
+
+<!-- SIGN-UP MODAL -->
+<div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create an Account</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up-form">
+          <input type="text" name="credentials[email]" placeholder="Email Address">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" class="login loginmodal-submit" value="Sign Up" data-toggle="modal" data-target="#sign-up-modal">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SIGN-UP MODAL -->
