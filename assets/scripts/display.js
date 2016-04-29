@@ -5,6 +5,8 @@ const app = require('./app-data');
 // let jsonExample = app.exampleData;
 
 const renderContent = function(json){
+  console.log("Rendering content...");
+  console.log(json);
   if(!json) {
     $('.content').empty();
   } else {
@@ -73,4 +75,5 @@ module.exports = {
   startUp,
   welcome,
   homePage,
+  renderContent,
 };
