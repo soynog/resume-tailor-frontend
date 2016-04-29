@@ -37,6 +37,15 @@ const renderModals = function(hide_modals) {
   }
 };
 
+const renderNewDocForm = function(hide) {
+  if(hide) {
+    $('.new-document-form-container').empty();
+  } else {
+    let newDocForm = require('./templates/new-doc-form.handlebars');
+    $('.new-document-form-container').append(newDocForm);
+  }
+};
+
 // Clears the Site
 const clear = function() {
   console.log("Clearing Screen");
@@ -57,6 +66,7 @@ const homePage = function() {
   console.log("Displaying Home Page");
   console.log(app);
   renderText("Home Page of " + app.user.email);
+  renderNewDocForm();
 };
 
 // Renders navbar, modals, and welcome screen or homepage.

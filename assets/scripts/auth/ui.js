@@ -12,6 +12,7 @@ const signInSuccess = (data) => {
   // Display user's documents
   display.homePage();
   docsEvents.getUserDocs();
+  docsEvents.addNewDocHandler();
 };
 
 const signUpSuccess = (data) => {

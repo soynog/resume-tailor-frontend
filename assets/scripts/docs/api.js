@@ -14,14 +14,16 @@ const getDocuments = function(success, failure) {
   .fail(failure);
 };
 
-const createDocument = function(title, success, failure) {
+const createDocument = function(success, failure, inputData) {
+  console.log("Creating document");
   let url = app.api + '/documents';
   let data = {
     document: {
-      title: title,
+      title: inputData.title,
       user_id: app.user.id
     }
   };
+  console.log(data);
   $.ajax({
     method: 'POST',
     url,
