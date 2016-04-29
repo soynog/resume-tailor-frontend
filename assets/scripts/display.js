@@ -50,6 +50,7 @@ const renderNewDocForm = function(hide) {
 const clear = function() {
   console.log("Clearing Screen");
   $('.content').empty();
+  $('.new-document-form-container').empty();
 };
 
 // Displays the Welcome Page
