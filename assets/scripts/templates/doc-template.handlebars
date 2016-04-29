@@ -1,19 +1,19 @@
 <div class="doc">
-  <div class="{{jsonExample.style}}">
-    <{{render "h1"}}>{{jsonExample.title}}</{{render "h1"}}>
+  <div class="{{json.style}}">
+    <{{render "h1"}}>{{json.content}}</{{render "h1"}}>
   </div>
-  {{#each jsonExample.children}}
+  {{#each json.children}}
     <div class="{{this.style}}">
-      <h2>{{this.title}}</h2>
+      <h2>{{this.content}}</h2>
     </div>
     {{#each this.children}}
       <div class="{{this.style}}">
-        <h3>{{this.title}}</h3>
+        <h3>{{this.content}}</h3>
       </div>
       {{#each this.children}}
         <ul>
           <div class="{{this.style}}">
-            <li>{{this.title}}</li>
+            <li>{{this.content}}</li>
           </div>
         </ul>
       {{/each}}

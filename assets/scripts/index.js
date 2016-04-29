@@ -1,38 +1,16 @@
 'use strict';
 
-// user require with a reference to bundle the file and use it in this file
-// var example = require('./example');
-
-// use require without a reference to ensure a file is bundled
-require('./example');
-
-let jsonExample = {
-  "title": "Look at Me I'm a JSON",
-  "style": "doc-title",
-  "children": [  {"title": "I'm a node!",
-                "children": [{"title": "content content content", "children": [{"title": "boop"},{"title": "sheboop"}]},
-                          {"title": "woo content"},
-                          {"title": "sooo much content"}]
-              },
-              {"title": "Me too!",
-               "style": "highlight",
-               "children": [{"title": "content content content"},
-                         {"title": "woo content", "children": [{"title": "boop"},{"title": "sheboop"}]},
-                         {"title": "sooo much content"}]
-              },
-              {"title": "Just another node...",
-               "children": [ {"title": "content content content"},
-                          {"title": "woo content"},
-                          {"title": "sooo much content", "children": [{"title": "boop"},{"title": "sheboop"}]}]
-              }
-          ]
-};
+const appData = require('./app-data');
+const authEvents = require('./auth/events');
 
 
-let renderJSON = function(){
-  let titleTemplate = require('./templates/doc-template.handlebars');
-  $('.content').append(titleTemplate({
-    jsonExample
+let jsonExample = appData.exampleData;
+
+
+let renderJSON = function(json){
+  let docTemplate = require('./templates/doc-template.handlebars');
+  $('.content').append(docTemplate({
+    json
   }));
 };
 
@@ -48,6 +26,7 @@ let renderModal = function(){
 
 $(document).ready(function(){
   renderNavBar();
-  renderJSON();
+  renderJSON(jsonExample);
   renderModal();
+  authEvents.addHandlers();
 });
