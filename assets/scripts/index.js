@@ -41,7 +41,13 @@ let renderNavBar = function(){
   $('.navbar-container').append(navBar());
 };
 
+let renderModal = function(){
+  let modal = require('./templates/login-modal.handlebars');
+  $('.modal-container').append(modal());
+};
+
 $(document).ready(function(){
   renderNavBar();
   renderJSON();
+  renderModal();
 });
