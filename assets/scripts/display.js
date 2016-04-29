@@ -4,17 +4,19 @@ const app = require('./app-data');
 
 // let jsonExample = app.exampleData;
 
-const renderContent = function(json){
-  console.log("Rendering content...");
-  console.log(json);
-  if(!json) {
-    $('.content').empty();
-  } else {
-    let docTemplate = require('./templates/doc-template.handlebars');
-    $('.content').append(docTemplate({
-      json
-    }));
-  }
+// Adds text to the content div.
+const renderText = function(text){
+  console.log("Rendering text...");
+  console.log(text);
+  $('.content').append(text);
+};
+
+// Renders a hierarchical document list to the content div.
+const renderDocuments = function(documents){
+  console.log("Rendering documents...");
+  console.log(documents);
+  let docListTemplate = require('./templates/doc-list.handlebars');
+  $('.content').append(docListTemplate({documents}));
 };
 
 const renderNavBar = function(hide_navbar) {
@@ -38,7 +40,7 @@ const renderModals = function(hide_modals) {
 // Clears the Site
 const clear = function() {
   console.log("Clearing Screen");
-  renderContent("");
+  $('.content').empty();
 };
 
 // Displays the Welcome Page
@@ -46,7 +48,7 @@ const welcome = function() {
   clear();
   console.log("Displaying Welcome Screen");
   console.log(app);
-  renderContent({content: "Welcome"});
+  renderText("Welcome");
 };
 
 // Displays the User's Homepage
@@ -54,7 +56,7 @@ const homePage = function() {
   clear();
   console.log("Displaying Home Page");
   console.log(app);
-  renderContent({content: "Home Page of " + app.user.email});
+  renderText("Home Page of " + app.user.email);
 };
 
 // Renders navbar, modals, and welcome screen or homepage.
@@ -75,5 +77,6 @@ module.exports = {
   startUp,
   welcome,
   homePage,
-  renderContent,
+  renderText,
+  renderDocuments,
 };

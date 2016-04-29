@@ -8,16 +8,16 @@ const getDocsSuccess = function(data) {
   console.log(data);
   let docs = data.documents;
   console.log(docs);
-  display.renderContent(docs);
+  display.renderDocuments(docs);
 };
 
-const getDocContentsSuccess = function(data) {
-  console.log("Document Loaded");
-  console.log(data);
-  let doc = data.document;
-  console.log(doc);
-  display.renderContent(doc);
-};
+// const getDocContentsSuccess = function(data) {
+//   console.log("Document Loaded");
+//   console.log(data);
+//   let doc = data.document;
+//   console.log(doc);
+//   display.renderDocuments(doc);
+// };
 
 const success = (data) => {
   console.log(data);
@@ -33,5 +33,5 @@ module.exports = {
   failure,
   success,
   getDocsSuccess,
-  getDocContentsSuccess,
+  // getDocContentsSuccess,
 };

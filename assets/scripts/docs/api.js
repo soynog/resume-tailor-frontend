@@ -14,19 +14,19 @@ const getDocuments = function(success, failure) {
   .fail(failure);
 };
 
-const getDocContents = function(docId, success, failure) {
-  let url = app.api + '/documents/' + docId;
-  $.ajax({
-    method: 'GET',
-    url,
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    }
-  }).done(success)
-  .fail(failure);
-};
+// const getDocContents = function(docId, success, failure) {
+//   let url = app.api + '/documents/' + docId;
+//   $.ajax({
+//     method: 'GET',
+//     url,
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     }
+//   }).done(success)
+//   .fail(failure);
+// };
 
 module.exports = {
   getDocuments,
-  getDocContents,
+  // getDocContents,
 };

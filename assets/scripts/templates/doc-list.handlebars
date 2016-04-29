@@ -1,0 +1,10 @@
+{{#each documents}}
+  <div class="doc-list">
+    <div class="doc">
+      <div class="{{json.style}}">
+        <h1>{{this.title}}</h1>
+      </div>
+      {{>doc-content}}
+    </div>
+  </div>
+{{/each}}

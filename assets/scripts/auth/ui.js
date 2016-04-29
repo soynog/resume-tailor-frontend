@@ -12,7 +12,7 @@ const signInSuccess = (data) => {
 
   // Display user's documents
   display.homePage();
-  docsApi.getDocContents(5, docsUi.getDocContentsSuccess, docsUi.failure);
+  docsApi.getDocuments(docsUi.getDocsSuccess, docsUi.failure);
 };
 
 const signUpSuccess = (data) => {
