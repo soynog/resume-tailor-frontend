@@ -2,8 +2,7 @@
 
 const app = require('../app-data');
 const display = require('../display');
-const docsApi = require('../docs/api');
-const docsUi = require('../docs/ui');
+const docsEvents = require('../docs/events');
 
 const signInSuccess = (data) => {
   app.user = data.user;
@@ -12,7 +11,7 @@ const signInSuccess = (data) => {
 
   // Display user's documents
   display.homePage();
-  docsApi.getDocuments(docsUi.getDocsSuccess, docsUi.failure);
+  docsEvents.getUserDocs();
 };
 
 const signUpSuccess = (data) => {

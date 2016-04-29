@@ -11,6 +11,11 @@ const getDocsSuccess = function(data) {
   display.renderDocuments(docs);
 };
 
+const createDocSuccess = function(data) {
+  console.log("Document Created!");
+  console.log(data);
+};
+
 // const getDocContentsSuccess = function(data) {
 //   console.log("Document Loaded");
 //   console.log(data);
@@ -33,5 +38,6 @@ module.exports = {
   failure,
   success,
   getDocsSuccess,
+  createDocSuccess,
   // getDocContentsSuccess,
 };
