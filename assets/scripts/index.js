@@ -8,32 +8,40 @@ require('./example');
 
 let jsonExample = {
   "title": "Look at Me I'm a JSON",
-  "nodes": [  {"title": "I'm a node!",
-                "nodes": [{"title": "content content content"},
+  "style": "doc-title",
+  "children": [  {"title": "I'm a node!",
+                "children": [{"title": "content content content", "children": [{"title": "boop"},{"title": "sheboop"}]},
                           {"title": "woo content"},
                           {"title": "sooo much content"}]
               },
               {"title": "Me too!",
-               "nodes": [{"title": "content content content"},
-                         {"title": "woo content"},
+               "style": "highlight",
+               "children": [{"title": "content content content"},
+                         {"title": "woo content", "children": [{"title": "boop"},{"title": "sheboop"}]},
                          {"title": "sooo much content"}]
               },
               {"title": "Just another node...",
-               "nodes": [ {"title": "content content content"},
+               "children": [ {"title": "content content content"},
                           {"title": "woo content"},
-                          {"title": "sooo much content"}]
+                          {"title": "sooo much content", "children": [{"title": "boop"},{"title": "sheboop"}]}]
               }
           ]
 };
 
 
 let renderJSON = function(){
-  let titleTemplate = require('./templates/doc-title.handlebars');
+  let titleTemplate = require('./templates/doc-template.handlebars');
   $('.content').append(titleTemplate({
     jsonExample
   }));
 };
 
+let renderNavBar = function(){
+  let navBarTemplate = require('./templates/navbar-template.handlebars');
+  $('.navbar-container').append(navBarTemplate());
+};
+
 $(document).ready(function(){
+  renderNavBar();
   renderJSON();
 });
