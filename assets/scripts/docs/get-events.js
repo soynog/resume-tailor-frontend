@@ -1,11 +1,11 @@
 'use strict';
 
 const docsApi = require('./api');
-const docsUi = require('./ui');
+const docsGetUi = require('./get-ui');
 
 // Get user documents, display them on success
 const getUserDocs = function() {
-  docsApi.getDocuments(docsUi.getDocsSuccess, docsUi.failure);
+  docsApi.getDocuments(docsGetUi.getDocsSuccess, docsGetUi.failure);
 };
 
 module.exports = {

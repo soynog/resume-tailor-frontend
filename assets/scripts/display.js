@@ -67,6 +67,13 @@ const homePage = function() {
   console.log("Displaying Home Page");
   console.log(app);
   renderText("Home Page of " + app.user.email);
+  refreshContent();
+};
+
+// Refereshes the document list
+const refreshContent = function() {
+  clear();
+  renderDocuments(app.documents);
   renderNewDocForm();
 };
 
@@ -89,5 +96,5 @@ module.exports = {
   welcome,
   homePage,
   renderText,
-  renderDocuments,
+  refreshContent,
 };

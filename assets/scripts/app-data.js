@@ -2,6 +2,7 @@
 
 const app = {
   api: 'http://localhost:3000',
+  documents: {},
   exampleData: {
     "content": "Look at Me I'm a JSON example",
     "style": "doc-title",
