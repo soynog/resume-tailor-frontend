@@ -1,9 +1,7 @@
 'use strict';
 
-const authEvents = require('./auth/events');
-const display = require('./display');
+const view = require('./view-control');
 
 $(document).ready(function(){
-  display.startUp();
-  authEvents.addHandlers();
+  view.updateView();
 });

@@ -2,12 +2,15 @@
 
 const app = require('../app-data');
 const display = require('../display');
+// const docsEvents = require('./events');
 
 const createDocSuccess = function(data) {
   console.log("Document Created!");
   app.documents.push(data.document);
   console.log(app);
+
   display.refreshContent();
+  // docsEvents.addDocHandlers();
 };
 
 const deleteDocSuccess = function(id) {
@@ -16,14 +19,32 @@ const deleteDocSuccess = function(id) {
   // Delete element from app.documents were id = id
   app.documents.splice(app.documents.findIndex((doc) => doc.id === id), 1);
   console.log(app);
+
   display.refreshContent();
+  // docsEvents.addDocHandlers();
 };
 
-const success = (data) => {
+const getDocsSuccess = function(data) {
+  console.log("Documents Loaded");
+  app.documents = data.documents;
+  console.log(app.documents);
+  display.refreshContent();
+  // docsEvents.addDocHandlers();
+};
+
+// const getDocContentsSuccess = function(data) {
+//   console.log("Document Loaded");
+//   console.log(data);
+//   let doc = data.document;
+//   console.log(doc);
+//   display.renderDocuments(doc);
+// };
+
+const success = function(data) {
   console.log(data);
 };
 
-const failure = (error) => {
+const failure = function(error) {
   console.log(app);
   console.error(error);
 };
@@ -34,4 +55,6 @@ module.exports = {
   success,
   createDocSuccess,
   deleteDocSuccess,
+  getDocsSuccess,
+  // getDocContentsSuccess,
 };

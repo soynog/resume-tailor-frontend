@@ -47,7 +47,7 @@ const renderNewDocForm = function(hide) {
 };
 
 // Clears the Site
-const clear = function() {
+const clearContent = function() {
   console.log("Clearing Screen");
   $('.content').empty();
   $('.new-document-form-container').empty();
@@ -55,7 +55,7 @@ const clear = function() {
 
 // Displays the Welcome Page
 const welcome = function() {
-  clear();
+  clearContent();
   console.log("Displaying Welcome Screen");
   console.log(app);
   renderText("Welcome");
@@ -63,7 +63,7 @@ const welcome = function() {
 
 // Displays the User's Homepage
 const homePage = function() {
-  clear();
+  clearContent();
   console.log("Displaying Home Page");
   console.log(app);
   renderText("Home Page of " + app.user.email);
@@ -72,23 +72,17 @@ const homePage = function() {
 
 // Refereshes the document list
 const refreshContent = function() {
-  clear();
+  clearContent();
   renderDocuments(app.documents);
   renderNewDocForm();
 };
 
 // Renders navbar, modals, and welcome screen or homepage.
 const startUp = function() {
-  clear();
   console.log("Starting App");
   console.log(app);
   renderNavBar();
   renderModals();
-  if(app.user) {
-    homePage();
-  } else {
-    welcome();
-  }
 };
 
 module.exports = {

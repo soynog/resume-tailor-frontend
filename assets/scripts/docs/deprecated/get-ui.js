@@ -20,11 +20,11 @@ const getDocsSuccess = function(data) {
 //   display.renderDocuments(doc);
 // };
 
-const success = (data) => {
+const success = function(data) {
   console.log(data);
 };
 
-const failure = (error) => {
+const failure = function(error) {
   console.log(app);
   console.error(error);
 };

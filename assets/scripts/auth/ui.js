@@ -2,24 +2,23 @@
 
 const app = require('../app-data');
 const display = require('../display');
-const docsGetEvents = require('../docs/get-events');
 
-const signInSuccess = (data) => {
+const signInSuccess = function(data) {
   app.user = data.user;
   console.log(data.user.email + " signed in successfully.");
   console.log(app);
 
-  // Display user's documents
+  // // Display user's documents
   display.homePage();
-  docsGetEvents.getUserDocs();
+  // docsGetEvents.getUserDocs();
 };
 
-const signUpSuccess = (data) => {
+const signUpSuccess = function(data) {
   console.log("Successfully signed up " + data.user.email);
   signInSuccess(data);
 };
 
-const signOutSuccess = () => {
+const signOutSuccess = function() {
   app.user = null;
   console.log("User signed out successfully.");
   console.log(app);
@@ -28,11 +27,11 @@ const signOutSuccess = () => {
   display.welcome();
 };
 
-const success = (data) => {
+const success = function(data) {
   console.log(data);
 };
 
-const failure = (error) => {
+const failure = function(error) {
   console.log(app);
   console.error(error);
 };
