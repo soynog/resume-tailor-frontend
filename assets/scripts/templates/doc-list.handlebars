@@ -3,10 +3,18 @@
     <div class="doc">
       <div class="{{json.style}}">
         <h1>{{this.title}}  </h1>
-        <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">Delete Document</button>
-        <button type="button" class="btn btn-link expand-document-button" data-target="{{this.id}}">Expand Document</button>
+        <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">
+          Delete Document
+        </button>
+        <button type="button" class="btn btn-link expand-document-button" data-toggle="collapse" data-target="#doc{{this.id}}content" aria-expanded="false" aria-controls="collapseExample">
+          Expand Document
+        </button>
       </div>
-      {{>doc-content}}
+      <div class="collapse" id="doc{{this.id}}content">
+        <div class="well">
+          {{>doc-content}}
+        </div>
+      </div>
     </div>
   </div>
 {{/each}}
