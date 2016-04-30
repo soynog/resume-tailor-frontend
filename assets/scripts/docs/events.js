@@ -5,12 +5,17 @@ const docsApi = require('./api');
 const docsUi = require('./ui');
 
 const addNewDocHandler = function(callback) {
-  $('#new-doc-form').on('submit', function(event) {
+  let createDocActions = function(event) {
     event.preventDefault();
-    let data = getFormFields(this);
+    // let data = getFormFields($('#new-doc-form'));
+    let data = getFormFields($('#new-doc-form')[0]);
     console.log("New Doc Handler Clicked");
+    console.log(data);
     docsApi.createDocument([docsUi.createDocSuccess, callback], docsUi.failure, data);
-  });
+  };
+
+  $('.create-document-button').on('click', createDocActions);
+  $('#new-doc-form').on('submit', createDocActions);
 };
 
 const addDeleteHandlers = function(callback) {
