@@ -2,7 +2,7 @@
 
 const app = require('../app-data');
 const display = require('../display');
-const docsEvents = require('../docs/events');
+const docsGetEvents = require('../docs/get-events');
 
 const signInSuccess = (data) => {
   app.user = data.user;
@@ -11,8 +11,7 @@ const signInSuccess = (data) => {
 
   // Display user's documents
   display.homePage();
-  docsEvents.getUserDocs();
-  docsEvents.addNewDocHandler();
+  docsGetEvents.getUserDocs();
 };
 
 const signUpSuccess = (data) => {

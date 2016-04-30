@@ -2,6 +2,7 @@
 
 const app = require('../app-data');
 const display = require('../display');
+const docsModifyEvents = require('./modify-events');
 
 const getDocsSuccess = function(data) {
   console.log("Documents Loaded");
@@ -9,10 +10,16 @@ const getDocsSuccess = function(data) {
   let docs = data.documents;
   console.log(docs);
   display.renderDocuments(docs);
+  docsModifyEvents.addDocHandlers();
 };
 
 const createDocSuccess = function(data) {
   console.log("Document Created!");
+  console.log(data);
+};
+
+const deleteDocSuccess = function(data) {
+  console.log("Document Deleted!");
   console.log(data);
 };
 
@@ -39,5 +46,6 @@ module.exports = {
   success,
   getDocsSuccess,
   createDocSuccess,
+  deleteDocSuccess,
   // getDocContentsSuccess,
 };

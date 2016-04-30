@@ -15,7 +15,7 @@ const getDocuments = function(success, failure) {
 };
 
 const createDocument = function(success, failure, inputData) {
-  console.log("Creating document");
+  console.log("Creating Document");
   let url = app.api + '/documents';
   let data = {
     document: {
@@ -35,6 +35,19 @@ const createDocument = function(success, failure, inputData) {
   .fail(failure);
 };
 
+const deleteDocument = function(success, failure, docId) {
+  console.log("Deleting Document");
+  let url = app.api + '/documents/' + docId;
+  $.ajax({
+    method: 'DELETE',
+    url,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
+  }).done(success)
+  .fail(failure);
+};
+
 // const getDocContents = function(docId, success, failure) {
 //   let url = app.api + '/documents/' + docId;
 //   $.ajax({
@@ -50,5 +63,6 @@ const createDocument = function(success, failure, inputData) {
 module.exports = {
   getDocuments,
   createDocument,
+  deleteDocument,
   // getDocContents,
 };
