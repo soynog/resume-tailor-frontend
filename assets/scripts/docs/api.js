@@ -14,12 +14,12 @@ const getDocuments = function(success, failure) {
   .fail(failure);
 };
 
-const createDocument = function(success, failure, inputData) {
+const createDocument = function(success, failure, title) {
   console.log("Creating Document");
   let url = app.api + '/documents';
   let data = {
     document: {
-      title: inputData.title,
+      title: title,
       user_id: app.user.id
     }
   };

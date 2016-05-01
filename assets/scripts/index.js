@@ -3,5 +3,5 @@
 const view = require('./view-control');
 
 $(document).ready(function(){
-  view.updateView();
+  view.loadView();
 });

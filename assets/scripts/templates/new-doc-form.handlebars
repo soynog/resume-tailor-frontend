@@ -8,17 +8,19 @@
   </div>
 </form>-->
 
-<form id="new-doc-form">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="input-group">
-        <input type="text" name="title" class="form-control" placeholder="Create New Document">
-        <span class="input-group-btn">
-          <button class="btn btn-default create-document-button" type="button">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          </button>
+<div class="panel panel-default doc-list">
+  <div class="panel-heading">
+    <div class="doc-title-group">
+      <span>
+        <button type="button" class="btn btn-link create-document-button">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </span>
+      <div class="doc-title">
+        <span contenteditable="true" id="new-doc-title-input">
+          <h1>New Document</h1>
         </span>
-      </div><!-- /input-group -->
+      </div>
     </div>
   </div>
-</form>
+</div>

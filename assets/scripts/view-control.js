@@ -16,11 +16,11 @@ const userHomePage = function() {
 const welcomePage = function() {
   display.welcome();
 
-  // Create the User Auth event handlers, passing in getUserDocs as a callback for when user successfully signs in.
-  authEvents.addHandlers(docsEvents.getUserDocs, userHomePage);
+  // Create the User Auth event handlers, passing in userHomePage as a callback for when user successfully signs in.
+  authEvents.addHandlers(userHomePage);
 };
 
-const updateView = function() {
+const loadView = function() {
   display.startUp();
 
   if(app.user) {
@@ -31,5 +31,5 @@ const updateView = function() {
 };
 
 module.exports = {
-  updateView,
+  loadView,
 };

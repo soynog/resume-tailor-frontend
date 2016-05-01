@@ -61,20 +61,19 @@ const welcome = function() {
   renderText("Welcome");
 };
 
-// Displays the User's Homepage
-const homePage = function() {
-  clearContent();
-  console.log("Displaying Home Page");
-  console.log(app);
-  renderText("Home Page of " + app.user.email);
-  refreshContent();
-};
-
 // Refereshes the document list
 const refreshContent = function() {
   clearContent();
   renderDocuments(app.documents);
   renderNewDocForm();
+};
+
+// Displays the User's Homepage
+const homePage = function() {
+  clearContent();
+  console.log("Displaying Home Page");
+  console.log(app);
+  refreshContent();
 };
 
 // Renders navbar, modals, and welcome screen or homepage.

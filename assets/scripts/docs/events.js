@@ -7,15 +7,19 @@ const docsUi = require('./ui');
 const addNewDocHandler = function(callback) {
   let createDocActions = function(event) {
     event.preventDefault();
-    // let data = getFormFields($('#new-doc-form'));
-    let data = getFormFields($('#new-doc-form')[0]);
     console.log("New Doc Handler Clicked");
-    console.log(data);
-    docsApi.createDocument([docsUi.createDocSuccess, callback], docsUi.failure, data);
+    let title = $('#new-doc-title-input').text().trim();
+    console.log(title);
+    docsApi.createDocument([docsUi.createDocSuccess, callback], docsUi.failure, title);
   };
 
   $('.create-document-button').on('click', createDocActions);
-  $('#new-doc-form').on('submit', createDocActions);
+
+  $('#new-doc-title-input').keydown(function (event){
+    if(event.keyCode === 13) {
+      createDocActions(event);
+    }
+  });
 };
 
 const addDeleteHandlers = function(callback) {
@@ -27,7 +31,7 @@ const addDeleteHandlers = function(callback) {
   });
 };
 
-const addEditTitleHandlers = function() {
+const addEditTitleHandlers = function(callback) {
   let toggleEditable = function(docId) {
     let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
     if (docTitleInput.attr('contenteditable') === 'true') {
@@ -51,7 +55,7 @@ const addEditTitleHandlers = function() {
       let newTitle = $(this).text().trim();
       console.log("New Title: " + newTitle + " submitted for " + docId);
       toggleEditable(docId);
-      docsApi.updateDocTitle(docsUi.updateDocTitleSuccess(docId, newTitle), docsUi.failure, docId, newTitle);
+      docsApi.updateDocTitle([docsUi.updateDocTitleSuccess(docId, newTitle), callback], docsUi.failure, docId, newTitle);
     }
   });
 };
@@ -60,7 +64,7 @@ const addDocHandlers = function() {
   console.log("Adding document event handlers");
   addNewDocHandler(addDocHandlers);
   addDeleteHandlers(addDocHandlers);
-  addEditTitleHandlers();
+  addEditTitleHandlers(addDocHandlers);
 };
 
 // Get user documents, display them on success
