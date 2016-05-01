@@ -13,15 +13,25 @@ const createDocSuccess = function(data) {
   // docsEvents.addDocHandlers();
 };
 
-const deleteDocSuccess = function(id) {
+const deleteDocSuccess = function(docId) {
   console.log("Document Deleted!");
 
   // Delete element from app.documents were id = id
-  app.documents.splice(app.documents.findIndex((doc) => doc.id === id), 1);
+  console.log(docId);
+  app.documents.splice(app.documents.findIndex((doc) => doc.id === docId), 1);
   console.log(app);
 
   display.refreshContent();
   // docsEvents.addDocHandlers();
+};
+
+const updateDocTitleSuccess = function(docId, newTitle) {
+  console.log("Document Title Updated");
+  let docIndex = app.documents.findIndex((doc) => doc.id === parseInt(docId));
+  app.documents[docIndex].title = newTitle;
+  console.log(app);
+
+  display.refreshContent();
 };
 
 const getDocsSuccess = function(data) {
@@ -55,6 +65,7 @@ module.exports = {
   success,
   createDocSuccess,
   deleteDocSuccess,
+  updateDocTitleSuccess,
   getDocsSuccess,
   // getDocContentsSuccess,
 };

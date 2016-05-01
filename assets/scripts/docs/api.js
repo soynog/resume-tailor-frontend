@@ -48,6 +48,25 @@ const deleteDocument = function(success, failure, docId) {
   .fail(failure);
 };
 
+const updateDocTitle = function(success, failure, docId, newTitle) {
+  console.log("Updating Document Title");
+  let url = app.api + '/documents/' + docId;
+  let data = {
+    document: {
+      title: newTitle,
+    }
+  };
+  $.ajax({
+    method: 'PATCH',
+    url,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data
+  }).done(success)
+  .fail(failure);
+};
+
 // const getDocContents = function(docId, success, failure) {
 //   let url = app.api + '/documents/' + docId;
 //   $.ajax({
@@ -64,5 +83,6 @@ module.exports = {
   getDocuments,
   createDocument,
   deleteDocument,
+  updateDocTitle,
   // getDocContents,
 };

@@ -28,25 +28,30 @@ const addDeleteHandlers = function(callback) {
 };
 
 const addEditTitleHandlers = function() {
-  $('.edit-doc-title-button').on('click', function(event) {
-    let docId = $(this).attr('data-target');
-    console.log("Edit Button " + docId + " Clicked");
-    event.preventDefault();
+  let toggleEditable = function(docId) {
     let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
     if (docTitleInput.attr('contenteditable') === 'true') {
       docTitleInput.attr('contenteditable', 'false');
     } else {
       docTitleInput.attr('contenteditable', 'true');
     }
+  };
+
+  $('.edit-doc-title-button').on('click', function(event) {
+    let docId = $(this).attr('data-target');
+    console.log("Edit Button " + docId + " Clicked");
+    event.preventDefault();
+    toggleEditable(docId);
   });
 
   $('.doc-title-input').keydown(function (event){
     if(event.keyCode === 13) {
       event.preventDefault();
       let docId = $(this).attr('data-target');
-      let newTitle = $(this).text();
+      let newTitle = $(this).text().trim();
       console.log("New Title: " + newTitle + " submitted for " + docId);
-      // Make POST request
+      toggleEditable(docId);
+      docsApi.updateDocTitle(docsUi.updateDocTitleSuccess(docId, newTitle), docsUi.failure, docId, newTitle);
     }
   });
 };
