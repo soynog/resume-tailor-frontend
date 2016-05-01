@@ -32,7 +32,7 @@ const addEditTitleHandlers = function() {
     let docId = $(this).attr('data-target');
     console.log("Edit Button " + docId + " Clicked");
     event.preventDefault();
-    let docTitleInput = $(`.doc-title-input[data-doc=${docId}]`);
+    let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
     if (docTitleInput.attr('contenteditable') === 'true') {
       docTitleInput.attr('contenteditable', 'false');
     } else {
@@ -40,10 +40,15 @@ const addEditTitleHandlers = function() {
     }
   });
 
-  // $('.edit-doc-title-form').on('submit', function(event) {
-  //   console.log("New Title Submitted");
-  //   event.preventDefault();
-  // });
+  $('.doc-title-input').keydown(function (event){
+    if(event.keyCode === 13) {
+      event.preventDefault();
+      let docId = $(this).attr('data-target');
+      let newTitle = $(this).text();
+      console.log("New Title: " + newTitle + " submitted for " + docId);
+      // Make POST request
+    }
+  });
 };
 
 const addDocHandlers = function() {
