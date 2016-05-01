@@ -3,21 +3,6 @@
     <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
       <h2>{{this.content}}</h2>
     </span>
+    {{>doc-content}}
   </div>
-  {{#each this.children}}
-    <div class="doc-content {{this.style}}">
-      <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
-        <h3>{{this.content}}</h3>
-      </span>
-    </div>
-    {{#each this.children}}
-      <ul>
-        <div class="doc-content {{this.style}}">
-          <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
-            <li>{{this.content}}</li>
-          </span>
-        </div>
-      </ul>
-    {{/each}}
-  {{/each}}
 {{/each}}
