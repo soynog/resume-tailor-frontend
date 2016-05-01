@@ -1,8 +1,13 @@
 {{#each this.children}}
-  <div class="doc-content {{this.style}}">
+  <div class="doc-content">
     <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
-      <h2>{{this.content}}</h2>
+      <div class="{{this.style}}">{{this.content}}</div>
     </span>
     {{>doc-content}}
+    <div class="new-content">
+      <span contenteditable="true" class="new-content-input">
+        <div class="{{this.style}} small">enter new content here</div>
+      </span>
+    </div>
   </div>
 {{/each}}
