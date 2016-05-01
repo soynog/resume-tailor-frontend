@@ -32,10 +32,10 @@ nav.navbar {
   float: right;
 }
 
-.doc-title {
+.doc-title,.doc-content {
   display: inline-block;
 }
 
-.doc-content {
-  margin: 10px;
+.doc-content-container {
+  margin: 20px;
 }

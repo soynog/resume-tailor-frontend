@@ -1,13 +1,25 @@
-{{#each this.children}}
-  <div class="doc-content">
-    <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
-      <div class="{{this.style}}">{{this.content}}</div>
-    </span>
-    {{>doc-content}}
-    <div class="new-content">
-      <span contenteditable="true" class="new-content-input">
-        <div class="{{this.style}} small">enter new content here</div>
+<div class="doc-content-container">
+
+  {{#each this.children}}
+
+      <div class="doc-content">
+        <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
+          <div class="{{this.style}}">{{this.content}}</div>
+        </span>
+      </div>
+      <span>
+        <button type="button" class="btn btn-link delete-content-button" data-target="{{this.id}}">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
       </span>
-    </div>
+      {{>doc-content}}
+
+  {{/each}}
+
+  <div class="new-content">
+    <span contenteditable="true" class="new-content-input">
+      <div class="{{this.style}} small">enter new content here</div>
+    </span>
   </div>
-{{/each}}
+
+</div>
