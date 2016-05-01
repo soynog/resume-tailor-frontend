@@ -1,36 +1,33 @@
 {{#each documents}}
-  <div class="col-xs-12">
-    <h1>{{render "Bob"}}</h1>
-    <div class="panel panel-default doc-list">
-      <div class="panel-heading {{json.style}}">
-        <div class="doc-title-group" id="doc-{{this.id}}-title">
-          <!--<form class="edit-doc-title-form" data-target="{{this.id}}">-->
-            <span>
-              <button type="button" class="btn btn-link expand-document-button" data-toggle="collapse" data-target="#doc-{{this.id}}-content" aria-expanded="false" aria-controls="collapseExample">
-                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-              </button>
+  <div class="panel panel-default doc-list">
+    <div class="panel-heading {{json.style}}">
+      <div class="doc-title-group" id="doc-{{this.id}}-title">
+        <!--<form class="edit-doc-title-form" data-target="{{this.id}}">-->
+          <span>
+            <button type="button" class="btn btn-link expand-document-button" data-toggle="collapse" data-target="#doc-{{this.id}}-content" aria-expanded="false" aria-controls="collapseExample">
+              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            </button>
+          </span>
+          <div class="doc-title">
+            <span contenteditable="false" class="doc-title-input" data-target="{{this.id}}">
+              <h1>{{this.title}}</h1>
             </span>
-            <div class="doc-title">
-              <span contenteditable="false" class="doc-title-input" data-target="{{this.id}}">
-                <h1>{{this.title}}</h1>
-              </span>
-            </div>
-            <span>
-              <button type="button" class="btn btn-link edit-doc-title-button" data-target="{{this.id}}">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-              </button>
-            </span>
-            <span>
-              <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-            </span>
-          <!--</form>-->
-        </div>
+          </div>
+          <span>
+            <button type="button" class="btn btn-link edit-doc-title-button" data-target="{{this.id}}">
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+          </span>
+          <span>
+            <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </span>
+        <!--</form>-->
       </div>
-      <div class="collapse panel-body" id="doc-{{this.id}}-content">
-        {{>doc-content}}
-      </div>
+    </div>
+    <div class="collapse panel-body" id="doc-{{this.id}}-content">
+      {{>doc-content}}
     </div>
   </div>
 {{/each}}

@@ -1,10 +1,23 @@
-.inline-block {
-  display: inline-block;
+body {
+  background-color: #BBE9FB;
 }
 
-.doc h1 {
-  // display: inline-block;
-  font-size: 20px;
+div.app-page {
+  background-color: #FAF9F9;
+  margin: 20px;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 0 0 10px #888888;
+}
+
+nav.navbar {
+  background-color: inherit;
+  font-family: '@font-family-serif';
+  padding: 20px 0;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .expand-document-button {
