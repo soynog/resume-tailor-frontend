@@ -1,13 +1,20 @@
+.inline-block {
+  display: inline-block;
+}
 
 .doc h1 {
-  display: inline;
+  // display: inline-block;
+  font-size: 20px;
 }
 
 .expand-document-button {
   color: black;
 }
 
-.delete-document-button,.glyphicon-remove {
+.delete-document-button {
   float: right;
-  color: maroon;
+}
+
+.doc-title {
+  display: inline-block;
 }

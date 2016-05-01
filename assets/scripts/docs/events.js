@@ -27,10 +27,30 @@ const addDeleteHandlers = function(callback) {
   });
 };
 
+const addEditTitleHandlers = function() {
+  $('.edit-doc-title-button').on('click', function(event) {
+    let docId = $(this).attr('data-target');
+    console.log("Edit Button " + docId + " Clicked");
+    event.preventDefault();
+    let docTitleInput = $(`.doc-title-input[data-doc=${docId}]`);
+    if (docTitleInput.attr('contenteditable') === 'true') {
+      docTitleInput.attr('contenteditable', 'false');
+    } else {
+      docTitleInput.attr('contenteditable', 'true');
+    }
+  });
+
+  // $('.edit-doc-title-form').on('submit', function(event) {
+  //   console.log("New Title Submitted");
+  //   event.preventDefault();
+  // });
+};
+
 const addDocHandlers = function() {
   console.log("Adding document event handlers");
   addNewDocHandler(addDocHandlers);
   addDeleteHandlers(addDocHandlers);
+  addEditTitleHandlers();
 };
 
 // Get user documents, display them on success
