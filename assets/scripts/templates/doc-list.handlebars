@@ -1,19 +1,15 @@
 {{#each documents}}
-  <div class="doc-list">
-    <div class="doc">
-      <div class="{{json.style}}">
-        <button type="button" class="btn btn-link expand-document-button" data-toggle="collapse" data-target="#doc{{this.id}}content" aria-expanded="false" aria-controls="collapseExample">
-          <h1>{{this.title}}  </h1>
-        </button>
-        <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="collapse" id="doc{{this.id}}content">
-        <div class="well">
-          {{>doc-content}}
-        </div>
-      </div>
+  <div class="panel panel-default doc-list">
+    <div class="panel-heading {{json.style}}">
+      <button type="button" class="btn btn-link expand-document-button" data-toggle="collapse" data-target="#doc{{this.id}}content" aria-expanded="false" aria-controls="collapseExample">
+        <h1 class="panel-title">{{this.title}}</h1>
+      </button>
+      <button type="button" class="btn btn-link delete-document-button" data-target="{{this.id}}">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="collapse panel-body" id="doc{{this.id}}content">
+      {{>doc-content}}
     </div>
   </div>
 {{/each}}
