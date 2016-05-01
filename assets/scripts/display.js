@@ -8,7 +8,7 @@ const app = require('./app-data');
 const renderText = function(text){
   console.log("Rendering text...");
   console.log(text);
-  $('.content').append(text);
+  $('.content-container').append(text);
 };
 
 // Renders a hierarchical document list to the content div.
@@ -16,7 +16,7 @@ const renderDocuments = function(documents){
   console.log("Rendering documents...");
   console.log(documents);
   let docListTemplate = require('./templates/doc-list.handlebars');
-  $('.content').append(docListTemplate({documents}));
+  $('.content-container').append(docListTemplate({documents}));
 };
 
 const renderNavBar = function(hide_navbar) {
@@ -37,20 +37,22 @@ const renderModals = function(hide_modals) {
   }
 };
 
-const renderNewDocForm = function(hide) {
-  if(hide) {
-    $('.new-document-form-container').empty();
-  } else {
-    let newDocForm = require('./templates/new-doc-form.handlebars');
-    $('.new-document-form-container').append(newDocForm);
-  }
+const renderNewDocForm = function() {
+  // if(hide) {
+  //   $('.new-document-form-container').empty();
+  // } else {
+  //   let newDocForm = require('./templates/new-doc-form.handlebars');
+  //   $('.new-document-form-container').append(newDocForm);
+  // }
+  let newDocForm = require('./templates/new-doc-form.handlebars');
+  $('.content-container').append(newDocForm);
 };
 
 // Clears the Site
 const clearContent = function() {
   console.log("Clearing Screen");
-  $('.content').empty();
-  $('.new-document-form-container').empty();
+  $('.content-container').empty();
+  // $('.new-document-form-container').empty();
 };
 
 // Displays the Welcome Page
