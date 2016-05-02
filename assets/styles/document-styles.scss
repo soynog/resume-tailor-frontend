@@ -4,11 +4,15 @@ body {
 
 div.app-page {
   background-color: #FAF9F9;
-  margin: 20px 20px 0px 20px;
+  margin: 20px 50px 0px 50px;
   padding: 20px;
   height: auto;
   min-height: 100vh;
   box-shadow: 0 0 10px #888888;
+}
+
+h1,.h1 {
+  font-size: 18px;
 }
 
 nav.navbar {
@@ -19,7 +23,7 @@ nav.navbar {
 
 .panel-doc {
   background-color: inherit;
-  box-shadow: 1px 1px 4px #d0d0d0;
+  box-shadow: 1px 1px 4px #c0c0c0;
   border-radius: 0;
   text-align: left;
 }
