@@ -5,7 +5,9 @@
     </div>
     <div class="collapse panel-body" id="doc-{{this.id}}-content">
       {{>doc-version-tabs}}
-      {{>doc-content}}
+      <div class="doc-content-container" data-parent-id={{this.id}} data-parent-type="document">
+        {{>doc-content}}
+      </div>
     </div>
   </div>
 {{/each}}
