@@ -2,7 +2,7 @@
 
 const app = require('../app-data');
 
-const getVersions = function(success, failure) {
+const getVersions = function(success, failure, docId) {
   let url = app.api + '/versions';
   $.ajax({
     method: 'GET',

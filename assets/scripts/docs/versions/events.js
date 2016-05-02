@@ -1,77 +1,77 @@
 'use strict';
 
-const docsApi = require('./api');
-const docsUi = require('./ui');
+const versApi = require('./api');
+const versUi = require('./ui');
 
-const addNewDocHandler = function(callback) {
+const addNewVerHandler = function(callback) {
   let createDocActions = function(event) {
     event.preventDefault();
-    console.log("New Doc Handler Clicked");
-    let title = $('#new-doc-title-input').text().trim();
-    console.log(title);
-    docsApi.createDocument([docsUi.createDocSuccess, callback], docsUi.failure, title);
+    console.log("New Version Handler Clicked");
+    let name = $('#new-ver-name-input').text().trim();
+    console.log(name);
+    versApi.createVersion([versUi.createVerSuccess, callback], versUi.failure, name);
   };
 
-  $('.create-document-button').on('click', createDocActions);
+  $('.create-version-button').on('click', createVerActions);
 
-  $('#new-doc-title-input').keydown(function (event){
+  $('#new-ver-name-input').keydown(function (event){
     if(event.keyCode === 13) {
-      createDocActions(event);
+      createVerActions(event);
     }
   });
 };
+//
+// const addDeleteHandlers = function(callback) {
+//   $('button.delete-document-button').on('click', function(event) {
+//     console.log("Delete Docs Button Clicked");
+//     event.preventDefault();
+//     let targetId = $(this).data("target");
+//     docsApi.deleteDocument([docsUi.deleteDocSuccess(targetId), callback], docsUi.failure, targetId);
+//   });
+// };
 
-const addDeleteHandlers = function(callback) {
-  $('button.delete-document-button').on('click', function(event) {
-    console.log("Delete Docs Button Clicked");
-    event.preventDefault();
-    let targetId = $(this).data("target");
-    docsApi.deleteDocument([docsUi.deleteDocSuccess(targetId), callback], docsUi.failure, targetId);
-  });
-};
+// const addEditNameHandlers = function(callback) {
+//   let toggleEditable = function(docId) {
+//     let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
+//     if (docTitleInput.attr('contenteditable') === 'true') {
+//       docTitleInput.attr('contenteditable', 'false');
+//     } else {
+//       docTitleInput.attr('contenteditable', 'true');
+//     }
+//   };
+//
+//   $('.edit-doc-title-button').on('click', function(event) {
+//     let docId = $(this).attr('data-target');
+//     console.log("Edit Button " + docId + " Clicked");
+//     event.preventDefault();
+//     toggleEditable(docId);
+//   });
+//
+//   $('.doc-title-input').keydown(function (event){
+//     if(event.keyCode === 13) {
+//       event.preventDefault();
+//       let docId = $(this).attr('data-target');
+//       let newTitle = $(this).text().trim();
+//       console.log("New Title: " + newTitle + " submitted for " + docId);
+//       toggleEditable(docId);
+//       docsApi.updateDocTitle([docsUi.updateDocTitleSuccess(docId, newTitle), callback], docsUi.failure, docId, newTitle);
+//     }
+//   });
+// };
 
-const addEditTitleHandlers = function(callback) {
-  let toggleEditable = function(docId) {
-    let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
-    if (docTitleInput.attr('contenteditable') === 'true') {
-      docTitleInput.attr('contenteditable', 'false');
-    } else {
-      docTitleInput.attr('contenteditable', 'true');
-    }
-  };
-
-  $('.edit-doc-title-button').on('click', function(event) {
-    let docId = $(this).attr('data-target');
-    console.log("Edit Button " + docId + " Clicked");
-    event.preventDefault();
-    toggleEditable(docId);
-  });
-
-  $('.doc-title-input').keydown(function (event){
-    if(event.keyCode === 13) {
-      event.preventDefault();
-      let docId = $(this).attr('data-target');
-      let newTitle = $(this).text().trim();
-      console.log("New Title: " + newTitle + " submitted for " + docId);
-      toggleEditable(docId);
-      docsApi.updateDocTitle([docsUi.updateDocTitleSuccess(docId, newTitle), callback], docsUi.failure, docId, newTitle);
-    }
-  });
-};
-
-const addDocHandlers = function() {
-  console.log("Adding document event handlers");
-  addNewDocHandler(addDocHandlers);
-  addDeleteHandlers(addDocHandlers);
-  addEditTitleHandlers(addDocHandlers);
+const addVerHandlers = function() {
+  console.log("Adding version event handlers");
+  addNewVerHandler(addVerHandlers);
+  // addDeleteVerHandlers(addVerHandlers);
+  // addEditNameHandlers(addVerHandlers);
 };
 
 // Get user documents, display them on success
-const getUserDocs = function() {
-  docsApi.getDocuments([docsUi.getDocsSuccess, addDocHandlers], docsUi.failure);
+const getDocVersions = function(docId) {
+  versApi.getVersions([versUi.getVersSuccess, addVerHandlers], versUi.failure, docId);
 };
 
 module.exports = {
-  addDocHandlers,
-  getUserDocs,
+  addVerHandlers,
+  getDocVersions,
 };
