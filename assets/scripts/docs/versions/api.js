@@ -2,17 +2,17 @@
 
 const app = require('../app-data');
 
-const getVersions = function(success, failure, docId) {
-  let url = app.api + '/versions';
-  $.ajax({
-    method: 'GET',
-    url,
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    }
-  }).done(success)
-  .fail(failure);
-};
+// const getVersions = function(success, failure, docId) {
+//   let url = app.api + '/versions';
+//   $.ajax({
+//     method: 'GET',
+//     url,
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     }
+//   }).done(success)
+//   .fail(failure);
+// };
 
 const createVersion = function(success, failure, name, docId) {
   console.log("Creating Version");
