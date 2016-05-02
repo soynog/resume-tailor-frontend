@@ -55,7 +55,7 @@ const addEditTitleHandlers = function(callback) {
       let newTitle = $(this).text().trim();
       console.log("New Title: " + newTitle + " submitted for " + docId);
       toggleEditable(docId);
-      docsApi.updateDocTitle([docsUi.updateDocTitleSuccess(docId, newTitle), callback], docsUi.failure, docId, newTitle);
+      docsApi.updateDocTitle([docsUi.updateDocTitleSuccess, callback], docsUi.failure, docId, newTitle);
     }
   });
 };
@@ -72,7 +72,7 @@ const addDocHandlers = function(callback) {
 
 // Get user documents, display them on success
 const getUserDocs = function() {
-  docsApi.getDocuments([docsUi.getDocsSuccess, addDocHandlers(getUserDocs), sectEvents.addSectHandlers(getUserDocs)], docsUi.failure);
+  docsApi.getDocuments([docsUi.getDocsSuccess, addDocHandlers(getUserDocs),   sectEvents.addSectHandlers(getUserDocs)], docsUi.failure);
 };
 
 module.exports = {

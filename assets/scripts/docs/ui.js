@@ -7,29 +7,21 @@ const display = require('../display');
 const createDocSuccess = function(data) {
   console.log("Document Created!");
   console.log(data);
-  display.refreshContent();
 };
 
 const deleteDocSuccess = function() {
   console.log("Document Deleted!");
-  display.refreshContent();
 };
 
 const updateDocTitleSuccess = function() {
-  console.log("Document Title Updated");
-  // let docIndex = app.documents.findIndex((doc) => doc.id === parseInt(docId));
-  // app.documents[docIndex].title = newTitle;
-  // console.log(app);
-
-  display.refreshContent();
+  console.log("Document Title Updated!");
 };
 
 const getDocsSuccess = function(data) {
-  console.log("Documents Loaded");
+  console.log("Documents Loaded!");
   app.documents = data.documents;
   console.log(app.documents);
   display.refreshContent();
-  // docsEvents.addDocHandlers();
 };
 
 const success = function(data) {
@@ -37,7 +29,6 @@ const success = function(data) {
 };
 
 const failure = function(error) {
-  console.log(app);
   console.error(error);
 };
 

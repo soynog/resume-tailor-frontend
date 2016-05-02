@@ -19,20 +19,20 @@ const createSection = function(success, failure, section) {
   }).done(success)
   .fail(failure);
 };
-//
-// const deleteDocument = function(success, failure, docId) {
-//   console.log("Deleting Document");
-//   let url = app.api + '/documents/' + docId;
-//   $.ajax({
-//     method: 'DELETE',
-//     url,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     }
-//   }).done(success)
-//   .fail(failure);
-// };
-//
+
+const deleteSection = function(success, failure, sectId) {
+  console.log("Deleting Section");
+  let url = app.api + '/sections/' + sectId;
+  $.ajax({
+    method: 'DELETE',
+    url,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
+  }).done(success)
+  .fail(failure);
+};
+
 // const updateDocTitle = function(success, failure, docId, newTitle) {
 //   console.log("Updating Document Title");
 //   let url = app.api + '/documents/' + docId;
@@ -54,6 +54,6 @@ const createSection = function(success, failure, section) {
 
 module.exports = {
   createSection,
-  // deleteDocument,
+  deleteSection,
   // updateDocTitle,
 };
