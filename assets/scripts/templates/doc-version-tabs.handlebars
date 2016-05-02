@@ -7,7 +7,7 @@
 
     {{#each this.versions}}
       <li role="presentation">
-        <a href="#ver-{{this.id}}" aria-controls="ver-{{this.id}}" role="tab" data-toggle="tab">
+        <a href="#ver-{{this.id}}" aria-controls="ver-{{this.id}}" role="tab" data-toggle="tab" class="version-tab" data-version-id="{{this.id}}">
           <span contenteditable="true" class="version-name-input" data-version-id="{{this.id}}">
             {{this.name}}
           </span>

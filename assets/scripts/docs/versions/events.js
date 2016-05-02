@@ -36,12 +36,21 @@ const addVersionModHandlers = function(callback) {
   });
 };
 
+const addVersDisplayHandlers = function(callback) {
+  $('a.version-tab').on('click', function (event) {
+    event.preventDefault();
+    let versId = $(this).attr('data-version-id');
+    console.log(versId);
+  });
+};
+
 
 const addVersHandlers = function(callback) {
   return function() {
     console.log("Adding version event handlers");
     addNewVersHandler(callback);
     addVersionModHandlers(callback);
+    addVersDisplayHandlers(callback);
   };
 };
 
