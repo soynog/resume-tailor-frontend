@@ -31,6 +31,7 @@ const addSectionModHandlers = function(callback) {
       let sectId = container.attr('data-target');
       if(content) {
         console.log("Section Update Requested");
+        sectsApi.updateSection([sectsUi.updateSectSuccess, callback], sectsUi.failure, sectId, content);
       } else {
         console.log("Section Delete Requested");
         sectsApi.deleteSection([sectsUi.deleteSectSuccess, callback], sectsUi.failure, sectId);

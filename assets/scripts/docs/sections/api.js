@@ -33,27 +33,27 @@ const deleteSection = function(success, failure, sectId) {
   .fail(failure);
 };
 
-// const updateDocTitle = function(success, failure, docId, newTitle) {
-//   console.log("Updating Document Title");
-//   let url = app.api + '/documents/' + docId;
-//   let data = {
-//     document: {
-//       title: newTitle,
-//     }
-//   };
-//   $.ajax({
-//     method: 'PATCH',
-//     url,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     },
-//     data
-//   }).done(success)
-//   .fail(failure);
-// };
+const updateSection = function(success, failure, sectId, newContent) {
+  console.log("Updating Section Content");
+  let url = app.api + '/sections/' + sectId;
+  let data = {
+    section: {
+      content: newContent,
+    }
+  };
+  $.ajax({
+    method: 'PATCH',
+    url,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data
+  }).done(success)
+  .fail(failure);
+};
 
 module.exports = {
   createSection,
   deleteSection,
-  // updateDocTitle,
+  updateSection,
 };
