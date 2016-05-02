@@ -27,7 +27,7 @@ const addDeleteHandlers = function(callback) {
     console.log("Delete Docs Button Clicked");
     event.preventDefault();
     let targetId = $(this).data("target");
-    docsApi.deleteDocument([docsUi.deleteDocSuccess(targetId), callback], docsUi.failure, targetId);
+    docsApi.deleteDocument([docsUi.deleteDocSuccess, callback], docsUi.failure, targetId);
   });
 };
 

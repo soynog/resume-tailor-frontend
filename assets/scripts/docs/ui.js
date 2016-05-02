@@ -6,30 +6,20 @@ const display = require('../display');
 
 const createDocSuccess = function(data) {
   console.log("Document Created!");
-  app.documents.push(data.document);
-  console.log(app);
-
+  console.log(data);
   display.refreshContent();
-  // docsEvents.addDocHandlers();
 };
 
-const deleteDocSuccess = function(docId) {
+const deleteDocSuccess = function() {
   console.log("Document Deleted!");
-
-  // Delete element from app.documents were id = id
-  console.log(docId);
-  app.documents.splice(app.documents.findIndex((doc) => doc.id === docId), 1);
-  console.log(app);
-
   display.refreshContent();
-  // docsEvents.addDocHandlers();
 };
 
-const updateDocTitleSuccess = function(docId, newTitle) {
+const updateDocTitleSuccess = function() {
   console.log("Document Title Updated");
-  let docIndex = app.documents.findIndex((doc) => doc.id === parseInt(docId));
-  app.documents[docIndex].title = newTitle;
-  console.log(app);
+  // let docIndex = app.documents.findIndex((doc) => doc.id === parseInt(docId));
+  // app.documents[docIndex].title = newTitle;
+  // console.log(app);
 
   display.refreshContent();
 };
@@ -40,14 +30,6 @@ const getDocsSuccess = function(data) {
   console.log(app.documents);
   display.refreshContent();
   // docsEvents.addDocHandlers();
-};
-
-const getDocContentsSuccess = function(data) {
-  console.log("Document Loaded");
-  console.log(data);
-  // let doc = data.document;
-  // console.log(doc);
-  // display.renderDocuments(doc);
 };
 
 const success = function(data) {
@@ -67,5 +49,4 @@ module.exports = {
   deleteDocSuccess,
   updateDocTitleSuccess,
   getDocsSuccess,
-  getDocContentsSuccess,
 };
