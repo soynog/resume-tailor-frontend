@@ -1,17 +1,23 @@
 <div class="doc-content-container">
 
   {{#each this.children}}
-
-      <div class="doc-content">
-        <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
-          <div class="{{this.style}}">{{this.content}}</div>
+      <div class="doc-content-row">
+        <div class="doc-content">
+          <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
+            <div class="{{this.style}}">{{this.content}}</div>
+          </span>
+        </div>
+        <span>
+          <button type="button" class="btn btn-link include-content-button" data-target="{{this.id}}">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </span>
+        <span>
+          <button type="button" class="btn btn-link remove-content-button" data-target="{{this.id}}">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          </button>
         </span>
       </div>
-      <span>
-        <button type="button" class="btn btn-link delete-content-button" data-target="{{this.id}}">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-      </span>
       {{>doc-content}}
 
   {{/each}}
