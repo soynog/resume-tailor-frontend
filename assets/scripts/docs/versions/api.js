@@ -1,18 +1,6 @@
 'use strict';
 
-const app = require('../app-data');
-
-// const getVersions = function(success, failure, docId) {
-//   let url = app.api + '/versions';
-//   $.ajax({
-//     method: 'GET',
-//     url,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     }
-//   }).done(success)
-//   .fail(failure);
-// };
+const app = require('../../app-data');
 
 const createVersion = function(success, failure, name, docId) {
   console.log("Creating Version");
@@ -48,11 +36,11 @@ const deleteVersion = function(success, failure, verId) {
   .fail(failure);
 };
 
-const updateVerName = function(success, failure, verId, newName) {
+const updateVersion = function(success, failure, versId, newName) {
   console.log("Updating Version Name");
-  let url = app.api + '/versions/' + verId;
+  let url = app.api + '/versions/' + versId;
   let data = {
-    document: {
+    version: {
       name: newName,
     }
   };
@@ -68,8 +56,7 @@ const updateVerName = function(success, failure, verId, newName) {
 };
 
 module.exports = {
-  getVersions,
   createVersion,
   deleteVersion,
-  updateVerName,
+  updateVersion,
 };

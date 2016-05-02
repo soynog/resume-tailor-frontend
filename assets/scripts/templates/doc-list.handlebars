@@ -4,7 +4,9 @@
       {{>doc-title-group}}
     </div>
     <div class="panel-body" id="doc-{{this.id}}-content">  <!-- add class collapse to have it start collapsed-->
-      {{>doc-version-tabs}}
+      <div class="doc-version-container" data-doc-id={{this.id}}>
+        {{>doc-version-tabs}}
+      </div>
       <div class="doc-content-container" data-parent-id={{this.id}} data-parent-type="Document">
         {{>doc-content}}
       </div>

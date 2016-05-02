@@ -6,16 +6,26 @@
       <li role="presentation" class="active"><a href="#master" aria-controls="master" role="tab" data-toggle="tab">MASTER</a></li>
 
     {{#each this.versions}}
-      <li role="presentation"><a href="#ver-{{this.id}}" aria-controls="ver-{{this.id}}" role="tab" data-toggle="tab">{{this.name}}</a></li>
+      <li role="presentation">
+        <a href="#ver-{{this.id}}" aria-controls="ver-{{this.id}}" role="tab" data-toggle="tab">
+          <span contenteditable="true" class="version-name-input" data-version-id="{{this.id}}">
+            {{this.name}}
+          </span>
+        </a>
+      </li>
     {{/each}}
 
       <li role="presentation">
-        <span role="tab" contenteditable="true" id="new-ver-name-input">New Version</span>
-        <span>
-          <button type="button" class="btn btn-link btn-sm new-version-button">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          </button>
-        </span>
+        <a href="#ver-new" aria-controls="ver-new" role="tab" data-toggle="tab">
+          <span contenteditable="true" class="new-version-input">
+            New Version
+          </span>
+          <!--<span>
+            <button type="button" class="btn btn-link btn-xs new-version-button">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+          </span>-->
+        </a>
       </li>
   </ul>
 

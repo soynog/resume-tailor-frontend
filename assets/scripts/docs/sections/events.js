@@ -40,51 +40,11 @@ const addSectionModHandlers = function(callback) {
   });
 };
 
-// const addDeleteHandlers = function(callback) {
-//   $('button.delete-document-button').on('click', function(event) {
-//     console.log("Delete Docs Button Clicked");
-//     event.preventDefault();
-//     let targetId = $(this).data("target");
-//     docsApi.deleteDocument([docsUi.deleteDocSuccess(targetId), callback], docsUi.failure, targetId);
-//   });
-// };
-//
-// const addEditTitleHandlers = function(callback) {
-//   let toggleEditable = function(docId) {
-//     let docTitleInput = $(`.doc-title-input[data-target=${docId}]`);
-//     if (docTitleInput.attr('contenteditable') === 'true') {
-//       docTitleInput.attr('contenteditable', 'false');
-//     } else {
-//       docTitleInput.attr('contenteditable', 'true');
-//     }
-//   };
-//
-//   $('.edit-doc-title-button').on('click', function(event) {
-//     let docId = $(this).attr('data-target');
-//     console.log("Edit Button " + docId + " Clicked");
-//     event.preventDefault();
-//     toggleEditable(docId);
-//   });
-//
-//   $('.doc-title-input').keydown(function (event){
-//     if(event.keyCode === 13) {
-//       event.preventDefault();
-//       let docId = $(this).attr('data-target');
-//       let newTitle = $(this).text().trim();
-//       console.log("New Title: " + newTitle + " submitted for " + docId);
-//       toggleEditable(docId);
-//       docsApi.updateDocTitle([docsUi.updateDocTitleSuccess(docId, newTitle), callback], docsUi.failure, docId, newTitle);
-//     }
-//   });
-// };
-
 const addSectHandlers = function(callback) {
   return function() {
     console.log("Adding section event handlers");
     addNewSectHandler(callback);
     addSectionModHandlers(callback);
-    // addDeleteHandlers(addDocHandlers);
-    // addEditTitleHandlers(addDocHandlers);
   };
 };
 
