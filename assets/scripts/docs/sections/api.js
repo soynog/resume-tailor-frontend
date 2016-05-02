@@ -4,7 +4,7 @@ const app = require('../../app-data');
 
 const createSection = function(success, failure, section) {
   console.log("Creating Section");
-  let url = app.api + '/section';
+  let url = app.api + '/sections';
   let data = {
     section
   };

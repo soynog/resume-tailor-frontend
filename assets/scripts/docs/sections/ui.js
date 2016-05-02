@@ -1,15 +1,11 @@
 'use strict';
 
 const app = require('../../app-data');
-// const display = require('../display');
+const display = require('../../display');
 
 const createSectSuccess = function(data) {
   console.log("Section Created!");
   console.log(data);
-  // app.documents.push(data.document);
-  // console.log(app);
-
-  // display.refreshContent();
 };
 //
 // const deleteDocSuccess = function(docId) {

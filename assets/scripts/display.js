@@ -2,8 +2,6 @@
 
 const app = require('./app-data');
 
-// let jsonExample = app.exampleData;
-
 // Adds text to the content div.
 const renderText = function(text){
   console.log("Rendering text...");
@@ -12,7 +10,7 @@ const renderText = function(text){
 };
 
 // Renders a hierarchical document list to the content div.
-const renderDocuments = function(documents){
+const renderDocuments = function(documents) {
   console.log("Rendering documents...");
   console.log(documents);
   let docListTemplate = require('./templates/doc-list.handlebars');

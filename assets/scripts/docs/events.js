@@ -60,16 +60,19 @@ const addEditTitleHandlers = function(callback) {
   });
 };
 
-const addDocHandlers = function() {
-  console.log("Adding document event handlers");
-  addNewDocHandler(addDocHandlers);
-  addDeleteHandlers(addDocHandlers);
-  addEditTitleHandlers(addDocHandlers);
+// Appends callback as a success function after handler event succeeds.
+const addDocHandlers = function(callback) {
+  return function() {
+    console.log("Adding document event handlers");
+    addNewDocHandler(callback);
+    addDeleteHandlers(callback);
+    addEditTitleHandlers(callback);
+  };
 };
 
 // Get user documents, display them on success
 const getUserDocs = function() {
-  docsApi.getDocuments([docsUi.getDocsSuccess, addDocHandlers, sectEvents.addSectHandlers], docsUi.failure);
+  docsApi.getDocuments([docsUi.getDocsSuccess, addDocHandlers(getUserDocs), sectEvents.addSectHandlers(getUserDocs)], docsUi.failure);
 };
 
 module.exports = {

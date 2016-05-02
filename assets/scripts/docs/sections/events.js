@@ -16,8 +16,7 @@ const addNewSectHandler = function(callback) {
                       style: null,
                       parent_id: parentId,
                       parent_type: parentType };
-      console.log(section);
-      // sectsApi.createSection([sectsUi.createSectSuccess, callback], sectsUi.failure, section);
+      sectsApi.createSection([sectsUi.createSectSuccess, callback], sectsUi.failure, section);
     }
   });
 };
@@ -60,11 +59,13 @@ const addNewSectHandler = function(callback) {
 //   });
 // };
 
-const addSectHandlers = function() {
-  console.log("Adding section event handlers");
-  addNewSectHandler(addSectHandlers);
-  // addDeleteHandlers(addDocHandlers);
-  // addEditTitleHandlers(addDocHandlers);
+const addSectHandlers = function(callback) {
+  return function() {
+    console.log("Adding section event handlers");
+    addNewSectHandler(callback);
+    // addDeleteHandlers(addDocHandlers);
+    // addEditTitleHandlers(addDocHandlers);
+  }
 };
 
 module.exports = {

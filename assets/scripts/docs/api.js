@@ -67,22 +67,22 @@ const updateDocTitle = function(success, failure, docId, newTitle) {
   .fail(failure);
 };
 
-// const getDocContents = function(docId, success, failure) {
-//   let url = app.api + '/documents/' + docId;
-//   $.ajax({
-//     method: 'GET',
-//     url,
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     }
-//   }).done(success)
-//   .fail(failure);
-// };
+const getDocContents = function(success, failure, docId) {
+  let url = app.api + '/documents/' + docId;
+  $.ajax({
+    method: 'GET',
+    url,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }
+  }).done(success)
+  .fail(failure);
+};
 
 module.exports = {
   getDocuments,
   createDocument,
   deleteDocument,
   updateDocTitle,
-  // getDocContents,
+  getDocContents,
 };

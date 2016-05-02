@@ -42,13 +42,13 @@ const getDocsSuccess = function(data) {
   // docsEvents.addDocHandlers();
 };
 
-// const getDocContentsSuccess = function(data) {
-//   console.log("Document Loaded");
-//   console.log(data);
-//   let doc = data.document;
-//   console.log(doc);
-//   display.renderDocuments(doc);
-// };
+const getDocContentsSuccess = function(data) {
+  console.log("Document Loaded");
+  console.log(data);
+  // let doc = data.document;
+  // console.log(doc);
+  // display.renderDocuments(doc);
+};
 
 const success = function(data) {
   console.log(data);
@@ -67,5 +67,5 @@ module.exports = {
   deleteDocSuccess,
   updateDocTitleSuccess,
   getDocsSuccess,
-  // getDocContentsSuccess,
+  getDocContentsSuccess,
 };
