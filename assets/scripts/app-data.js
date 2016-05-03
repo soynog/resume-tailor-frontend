@@ -12,6 +12,12 @@ const app = {
         app.activeVersions[docId] = null;
       }
     }
+  },
+  getDoc: (id) => {
+    return app.documents.find((doc) => doc.id === parseInt(id));
+  },
+  getVersion: (docId, versId) => {
+    return app.getDoc(docId).versions.find((v) => v.id === parseInt(versId));
   }
 };
 
