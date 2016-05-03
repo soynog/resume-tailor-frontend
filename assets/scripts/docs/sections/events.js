@@ -8,7 +8,8 @@ const addNewSectHandler = function(callback) {
     if(event.keyCode === 13) {
       event.preventDefault();
       console.log("New Section Requested");
-      let content = $(this).text().trim();
+      let content = $(this).val().trim();
+      console.log(content);
       let container = $(this).closest($('.doc-content-container'));
       let parentId = container.attr('data-parent-id');
       let parentType = container.attr('data-parent-type');

@@ -1,3 +1,8 @@
+// DOCUMENT VARIABLES
+$doc-border-style: solid $gray-border 1px;
+
+
+// DOCUMENT CONTAINER
 .panel-doc {
   background-color: inherit;
   box-shadow: $sm-shadow;
@@ -5,24 +10,40 @@
   text-align: left;
 }
 
+// DOCUMENT TITLE SECTION
+
 .delete-document-button {
   float: right;
 }
 
-.doc-title,.doc-content {
+.doc-title {
   display: inline-block;
 }
 
+
+// DOCUMENT VERSION TABS
+
+
+
+
+// DOCUMENT BODY
+
 .doc-content-container {
-  margin: 10px;
-  padding-left: 5px;
-  border-left: solid #ddddff 1px;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-left: $doc-border-style;
 }
 
-.doc-content-row {
-  border-bottom: solid #ddddff 1px;
+.doc-content-group {
+  display: inline-block;
+  // border: $doc-border-style;
 }
 
+.doc-content {
+  display: inline-block;
+  margin: 10px 0;
+}
 
 //excluded sections
 span.doc-content-input {
@@ -32,4 +53,11 @@ span.doc-content-input {
 // included sections
 span.doc-content-input.tag-include {
   color: $text-color-main;
+}
+
+// new content input
+.new-content-input {
+  min-width: 100px;
+  background-color: inherit;
+  border: 0;
 }
