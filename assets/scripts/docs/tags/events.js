@@ -3,14 +3,11 @@
 const tagsApi = require('./api');
 const tagsUi = require('./ui');
 const app = require('../../app-data');
-const display = require('../../display');
 
 const getTagId = function(docId, versId, sectId) {
   console.log("Getting Tag Id");
-  let doc = app.documents.find((d) => d.id === parseInt(docId));
-  console.log(doc);
-  let tags = doc.versions.find((v) => v.id === parseInt(versId)).tags;
-  let tagId = tags.find( (t) => t.section_id === parseInt(sectId)).id;
+  let tags = app.getVersion(docId, versId).tags;
+  let tagId = tags.find((t) => t.section_id === parseInt(sectId)).id;
   console.log(tagId);
   return tagId;
 };
