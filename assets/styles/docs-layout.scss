@@ -64,3 +64,16 @@ span.doc-content-input.tag-exclude {
   background-color: inherit;
   border: 0;
 }
+
+// hierarchical text styling
+.level-1 {
+  font-size: $font-size-h2;
+}
+
+.level-2, .level-1-plus {
+  font-size: $font-size-h3;
+}
+
+.level-3, .level-2-plus {
+  font-size: $font-size-h4;
+}
