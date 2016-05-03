@@ -15,15 +15,23 @@
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </span>
+      <!-- Button for toggling new section collapse
+      <span>
+        <button type="button" class="btn btn-link btn-sm toggle-new-content-button" id="toggle-new-content-button-{{this.id}}" data-toggle="collapse" data-target="#new-content-container-{{this.id}}">
+          <span class="glyphicon" aria-hidden="true"></span>
+        </button>
+      </span>
+    -->
     </div>
     <div class="doc-content-container" data-parent-id={{this.id}} data-parent-type="Section">
       {{>doc-content}}
     </div>
 {{/each}}
 
-<div class="new-content">
+<div id="new-content-container-{{this.id}}" class="new-content-container" data-level={{this.style}}>
   <!--<span contenteditable="true" class="new-content-input">
     <div class="{{this.style}}"></div>
   </span>-->
   <input class="level-{{this.style}}-plus new-content-input" placeholder="enter new content"></input>
+
 </div>

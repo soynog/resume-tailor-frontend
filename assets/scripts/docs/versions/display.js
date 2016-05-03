@@ -11,11 +11,14 @@ const docContJq = function(docId) {
 
 // Go through all the section elements in this doc and remove '.exclude' class, and hide all add/remove tag buttons. Remove collapse class from all children.
 const clearVersion = function(docId) {
-  let dcjq = docContJq(docId);
-  $(dcjq).find('span.doc-content-input').removeClass("tag-exclude");
-  $(dcjq).find('button.add-tag-button').addClass("hide");
-  $(dcjq).find('button.delete-tag-button').addClass("hide");
-  $(dcjq).find('.doc-content-container').removeClass("collapse");
+  let doc = docContJq(docId);
+  $(doc).find('span.doc-content-input').removeClass("tag-exclude");
+  $(doc).find('button.add-tag-button').addClass("hide");
+  $(doc).find('button.delete-tag-button').addClass("hide");
+  $(doc).find('.doc-content-container').removeClass("collapse");
+
+  // hide all new content fields below level 3
+  $(doc).find('.new-content-container[data-level="4"]').addClass('hide');
 };
 
 // Renders the master version for a Document
@@ -34,14 +37,14 @@ const renderVersion = function(docId, versId){
 
   // Clear version formatting and show all add-tag buttons
   clearVersion(docId);
-  let dcjq = docContJq(docId);
-  $(dcjq).find('button.add-tag-button').removeClass("hide");
+  let doc = docContJq(docId);
+  $(doc).find('button.add-tag-button').removeClass("hide");
 
   // Then, for each tag in the set, add tag-include class and switch to a remove-tag button. Add collapse class to children.
   for (var i = 0; i < tags.length; i++) {
-    $(dcjq).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-exclude");
-    $(dcjq).find(`.doc-content-container[data-parent-id="${tags[i]}"][data-parent-type="Section"]`).addClass("collapse");
-    $(dcjq).find(`button.delete-tag-button[data-target="${tags[i]}"]`).removeClass("hide");        $(dcjq).find(`button.add-tag-button[data-target="${tags[i]}"]`).addClass("hide");
+    $(doc).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-exclude");
+    $(doc).find(`.doc-content-container[data-parent-id="${tags[i]}"][data-parent-type="Section"]`).addClass("collapse");
+    $(doc).find(`button.delete-tag-button[data-target="${tags[i]}"]`).removeClass("hide");        $(doc).find(`button.add-tag-button[data-target="${tags[i]}"]`).addClass("hide");
   }
 
   // Finally, make sure the proper tab is showing
