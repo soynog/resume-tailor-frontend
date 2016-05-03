@@ -17,6 +17,7 @@ const renderDocuments = function(documents) {
   $('.content-container').append(docListTemplate({documents}));
 };
 
+// Renders the Nav Bar
 const renderNavBar = function(hide_navbar) {
   if(hide_navbar) {
     $('.navbar-container').empty();
@@ -26,6 +27,7 @@ const renderNavBar = function(hide_navbar) {
   }
 };
 
+// Renders the (hidden) modals
 const renderModals = function(hide_modals) {
   if(hide_modals) {
     $('.modal-container').empty();
@@ -35,15 +37,32 @@ const renderModals = function(hide_modals) {
   }
 };
 
+// Renders a New Document Form
 const renderNewDocForm = function() {
-  // if(hide) {
-  //   $('.new-document-form-container').empty();
-  // } else {
-  //   let newDocForm = require('./templates/new-doc-form.handlebars');
-  //   $('.new-document-form-container').append(newDocForm);
-  // }
   let newDocForm = require('./templates/new-doc-form.handlebars');
   $('.content-container').append(newDocForm);
+};
+
+// Adds and removes .include class from sections based on version tags
+const renderVersion = function(docId, versId){
+  console.log("Rendering Version");
+  let doc = app.documents[(app.documents.findIndex((d) => d.id === parseInt(docId)))];
+  let vers = doc.versions[(doc.versions.findIndex((v) => v.id === parseInt(versId)))];
+  console.log(doc);
+  console.log(vers);
+
+  // Creates a Sorted List of all the included section tags for this version
+  let tags = vers.tags.map( (t) => t.section_id ).sort();
+  console.log(tags);
+
+  // Go through all the section elements in this doc and append '.include' class if in the array; otherwise, remove it
+  let docContJq = `.doc-master-container[data-doc-id="${docId}"]`;
+
+  // First, remove all tag-include classes. Then for each tag in the set, add them back in.
+  $(docContJq).find(`span.doc-content-input`).removeClass("tag-include");
+  for (var i = 0; i < tags.length; i++) {
+    $(docContJq).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-include");
+  }
 };
 
 // Clears the Site
@@ -90,4 +109,5 @@ module.exports = {
   homePage,
   renderText,
   refreshContent,
+  renderVersion,
 };

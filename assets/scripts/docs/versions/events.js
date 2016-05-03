@@ -2,6 +2,8 @@
 
 const versApi = require('./api');
 const versUi = require('./ui');
+const app = require('../../app-data');
+const display = require('../../display');
 
 const addNewVersHandler = function(callback) {
   $('.new-version-input').keydown(function (event) {
@@ -36,11 +38,13 @@ const addVersionModHandlers = function(callback) {
   });
 };
 
-const addVersDisplayHandlers = function(callback) {
+const addVersDisplayHandlers = function() {
   $('a.version-tab').on('click', function (event) {
     event.preventDefault();
+    console.log("Version Display Requested");
+    let docId = $(this).closest('.doc-version-container').attr('data-doc-id');
     let versId = $(this).attr('data-version-id');
-    console.log(versId);
+    display.renderVersion(docId, versId);
   });
 };
 
@@ -50,7 +54,7 @@ const addVersHandlers = function(callback) {
     console.log("Adding version event handlers");
     addNewVersHandler(callback);
     addVersionModHandlers(callback);
-    addVersDisplayHandlers(callback);
+    addVersDisplayHandlers();
   };
 };
 
