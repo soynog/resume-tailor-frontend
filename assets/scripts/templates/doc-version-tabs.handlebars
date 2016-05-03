@@ -1,6 +1,5 @@
 <!-- Version Tabs -->
 <div>
-  <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
         <a href="#master" aria-controls="master" role="tab" data-toggle="tab" class="master-tab">
@@ -11,34 +10,15 @@
     {{#each this.versions}}
       <li role="presentation">
         <a href="#ver-{{this.id}}" aria-controls="ver-{{this.id}}" role="tab" data-toggle="tab" class="version-tab" data-version-id="{{this.id}}">
-          <span contenteditable="true" class="version-name-input" data-version-id="{{this.id}}">
-            {{this.name}}
-          </span>
+          <span contenteditable="true" class="version-name-input" data-version-id="{{this.id}}">{{this.name}}</span>
         </a>
       </li>
     {{/each}}
 
       <li role="presentation">
         <a href="#ver-new" aria-controls="ver-new" role="tab" data-toggle="tab">
-          <span contenteditable="true" class="new-version-input">
-            New Version
-          </span>
-          <!--<span>
-            <button type="button" class="btn btn-link btn-xs new-version-button">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
-          </span>-->
+          <span contenteditable="true" class="new-version-input">New Version</span>
         </a>
       </li>
   </ul>
-
-  <!-- Tab panes -->
-  <!--
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home"></div>
-    <div role="tabpanel" class="tab-pane" id="profile"></div>
-    <div role="tabpanel" class="tab-pane" id="messages"></div>
-    <div role="tabpanel" class="tab-pane" id="settings"></div>
-  </div>
-  -->
 </div>
