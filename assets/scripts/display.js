@@ -42,10 +42,10 @@ const renderNewDocForm = function() {
 
 // Renders the master version for a Document
 const renderMaster = function(docId) {
-  // Go through all the section elements in this doc and append '.include' class, and hide all add/remove tag buttons
+  // Go through all the section elements in this doc and remove '.exclude' class, and hide all add/remove tag buttons
   let docContJq = `.doc-master-container[data-doc-id="${docId}"]`;
 
-  $(docContJq).find('span.doc-content-input').addClass("tag-include");
+  $(docContJq).find('span.doc-content-input').removeClass("tag-exclude");
   $(docContJq).find('button.add-tag-button').addClass("hide");
   $(docContJq).find('button.delete-tag-button').addClass("hide");
 
@@ -65,17 +65,17 @@ const renderVersion = function(docId, versId){
   let tags = vers.tags.map( (t) => t.section_id ).sort();
   console.log(tags);
 
-  // Go through all the section elements in this doc and append '.include' class if in the array; otherwise, remove it
+  // Go through all the section elements in this doc and append '.exclude' class if in the array; otherwise, remove it
   let docContJq = `.doc-master-container[data-doc-id="${docId}"]`;
 
   // First, remove all tag-include classes and hide all delete-tag buttons. Show all add-tag buttons.
-  $(docContJq).find('span.doc-content-input').removeClass("tag-include");
+  $(docContJq).find('span.doc-content-input').removeClass("tag-exclude");
   $(docContJq).find('button.delete-tag-button').addClass("hide");
   $(docContJq).find('button.add-tag-button').removeClass("hide");
 
   // Then, for each tag in the set, add tag-include class and switch to a remove-tag button
   for (var i = 0; i < tags.length; i++) {
-    $(docContJq).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-include");
+    $(docContJq).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-exclude");
     $(docContJq).find(`button.delete-tag-button[data-target="${tags[i]}"]`).removeClass("hide");        $(docContJq).find(`button.add-tag-button[data-target="${tags[i]}"]`).addClass("hide");
   }
 

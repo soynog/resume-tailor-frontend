@@ -50,12 +50,12 @@ $doc-border-style: solid $gray-border 1px;
 
 //excluded sections
 span.doc-content-input {
-  color: $text-color-secondary;
+  color: $text-color-main;
 }
 
 // included sections
-span.doc-content-input.tag-include {
-  color: $text-color-main;
+span.doc-content-input.tag-exclude {
+  color: $text-color-secondary;
 }
 
 // new content input
