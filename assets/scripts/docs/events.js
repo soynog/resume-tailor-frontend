@@ -4,6 +4,7 @@ const docsApi = require('./api');
 const docsUi = require('./ui');
 const sectEvents = require('./sections/events');
 const versEvents = require('./versions/events');
+const tagsEvents = require('./tags/events');
 
 const addNewDocHandler = function(callback) {
   let createDocActions = function(event) {
@@ -74,7 +75,8 @@ const addDocHandlers = function(callback) {
 // Get user documents, display them on success
 const getUserDocs = function() {
   docsApi.getDocuments( [ docsUi.getDocsSuccess,
-                          addDocHandlers(getUserDocs),   sectEvents.addSectHandlers(getUserDocs), versEvents.addVersHandlers(getUserDocs) ], docsUi.failure);
+                          addDocHandlers(getUserDocs),   sectEvents.addSectHandlers(getUserDocs), versEvents.addVersHandlers(getUserDocs),
+                          tagsEvents.addTagHandlers(getUserDocs)   ], docsUi.failure);
 };
 
 module.exports = {

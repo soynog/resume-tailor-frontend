@@ -38,6 +38,12 @@ const addVersionModHandlers = function(callback) {
   });
 };
 
+// Sets the active version of the appropriate doc
+const setActiveVersion = function (docId, versId) {
+  console.log("Setting Active Version");
+  app.activeVersion[docId] = parseInt(versId);
+};
+
 const addVersDisplayHandlers = function() {
   $('a.version-tab').on('click', function (event) {
     event.preventDefault();
@@ -45,6 +51,7 @@ const addVersDisplayHandlers = function() {
     let docId = $(this).closest('.doc-version-container').attr('data-doc-id');
     let versId = $(this).attr('data-version-id');
     display.renderVersion(docId, versId);
+    setActiveVersion(docId, versId);
   });
 };
 

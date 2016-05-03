@@ -58,10 +58,14 @@ const renderVersion = function(docId, versId){
   // Go through all the section elements in this doc and append '.include' class if in the array; otherwise, remove it
   let docContJq = `.doc-master-container[data-doc-id="${docId}"]`;
 
-  // First, remove all tag-include classes. Then for each tag in the set, add them back in.
-  $(docContJq).find(`span.doc-content-input`).removeClass("tag-include");
+  // First, remove all tag-include classes. Then for each tag in the set, add them back in. Also add all Tag-Add buttons, and remove them and add Tag-Delete buttons for each tag in the set
+  $(docContJq).find('span.doc-content-input').removeClass("tag-include");
+  $(docContJq).find('button.add-tag-button').removeClass("hide");
+
   for (var i = 0; i < tags.length; i++) {
     $(docContJq).find(`span.doc-content-input[data-target="${tags[i]}"]`).addClass("tag-include");
+    $(docContJq).find(`button.add-tag-button[data-target="${tags[i]}"]`).addClass("hide");
+    $(docContJq).find(`button.delete-tag-button[data-target="${tags[i]}"]`).removeClass("hide");
   }
 };
 

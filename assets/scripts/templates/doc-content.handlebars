@@ -1,17 +1,17 @@
 {{#each this.children}}
-    <div class="doc-content-row">
+    <div class="doc-content-group" data-sect-id={{this.id}}>
       <div class="doc-content">
         <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
           <div class="{{this.style}}">{{this.content}}</div>
         </span>
       </div>
       <span>
-        <button type="button" class="btn btn-link btn-sm include-content-button" data-target="{{this.id}}">
+        <button type="button" class="hide btn btn-link btn-sm add-tag-button" data-target="{{this.id}}">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </span>
       <span>
-        <button type="button" class="btn btn-link btn-sm remove-content-button" data-target="{{this.id}}">
+        <button type="button" class="hide btn btn-link btn-sm delete-tag-button" data-target="{{this.id}}">
           <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
       </span>

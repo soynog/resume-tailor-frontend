@@ -2,7 +2,8 @@
 
 const app = {
   api: 'http://localhost:3000',
-  documents: {},
+  documents: [],
+  activeVersion: {}
 };
 
 module.exports = app;

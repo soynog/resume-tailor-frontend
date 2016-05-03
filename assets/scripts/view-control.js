@@ -4,7 +4,6 @@ const app = require('./app-data');
 const display = require('./display');
 const authEvents = require('./auth/events');
 const docsEvents = require('./docs/events');
-const sectEvents = require('./docs/sections/events');
 
 
 // Display this if a user is logged in.
