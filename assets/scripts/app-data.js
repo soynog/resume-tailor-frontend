@@ -2,6 +2,7 @@
 
 const app = {
   api: 'https://reztailor.herokuapp.com',
+  maxDepth: 3,
   documents: [],
   activeVersions: {},
   addVersions: () => {

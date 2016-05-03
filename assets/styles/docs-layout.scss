@@ -24,27 +24,32 @@ $doc-border-style: solid $gray-border 1px;
 // DOCUMENT VERSION TABS
 
 .new-version-input {
-  font-style: italic;
   color: $text-color-secondary;
+  font-style: italic;
 }
 
 
 // DOCUMENT BODY
 
 .doc-content-container {
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   border-left: $doc-border-style;
+  padding-left: 15px;
 }
 
-.doc-content-group {
-  // display: inline-block;
+.doc-content-group.level-1 {
+  padding-top: 15px;
+}
+
+.doc-content-group.level-2 {
+  padding-top: 10px;
+}
+
+.doc-content-group.level-2 {
+  padding-top: 5px;
 }
 
 .doc-content {
   display: inline-block;
-  margin: 10px 0;
 }
 
 //excluded sections

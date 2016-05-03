@@ -18,7 +18,7 @@ const clearVersion = function(docId) {
   $(doc).find('.doc-content-container').removeClass("collapse");
 
   // hide all new content fields below level 3
-  $(doc).find('.new-content-container[data-level="4"]').addClass('hide');
+  $(doc).find(`.new-content-container[data-level="${app.maxDepth}"]`).addClass('hide');
 };
 
 // Renders the master version for a Document

@@ -1,6 +1,6 @@
 {{#each this.children}}
-    <div class="doc-content-group" data-sect-id={{this.id}} data-level={{this.style}}>
-      <div class="doc-content">
+    <div class="doc-content-group level-{{this.style}}" data-sect-id={{this.id}} data-level={{this.style}}>
+      <div class="doc-content level-{{this.style}}">
         <span contenteditable="true" class="doc-content-input" data-target="{{this.id}}">
           <div class="level-{{this.style}}">{{this.content}}</div>
         </span>
@@ -32,6 +32,6 @@
   <!--<span contenteditable="true" class="new-content-input">
     <div class="{{this.style}}"></div>
   </span>-->
-  <input class="level-{{this.style}}-plus new-content-input" placeholder="enter new content"></input>
+  <input class="level-{{this.style}}-plus new-content-input" placeholder="+"></input>
 
 </div>
