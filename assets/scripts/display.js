@@ -67,6 +67,17 @@ const renderVersion = function(docId, versId){
     $(docContJq).find(`button.add-tag-button[data-target="${tags[i]}"]`).addClass("hide");
     $(docContJq).find(`button.delete-tag-button[data-target="${tags[i]}"]`).removeClass("hide");
   }
+
+  // Finally, make sure the proper tab is showing
+  $(`a.version-tab[data-version-id=${versId}]`).tab('show');
+};
+
+// Loops through all active versions and renders each one
+const renderActiveVersions = function() {
+  console.log("Rendering Active Versions");
+  for (var docId in app.activeVersion) {
+    renderVersion(docId, app.activeVersion[docId]);
+  }
 };
 
 // Clears the Site
@@ -89,6 +100,7 @@ const refreshContent = function() {
   clearContent();
   renderDocuments(app.documents);
   renderNewDocForm();
+  renderActiveVersions();
 };
 
 // Displays the User's Homepage
