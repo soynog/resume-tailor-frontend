@@ -23,7 +23,10 @@ $doc-border-style: solid $gray-border 1px;
 
 // DOCUMENT VERSION TABS
 
-
+.new-version-input {
+  font-style: italic;
+  color: $text-color-secondary;
+}
 
 
 // DOCUMENT BODY
