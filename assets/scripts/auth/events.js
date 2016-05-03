@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./api');
 const authUi = require('./ui');
-const display = require('../display');
+const display = require('./display');
 
 const addHandlers = function(signInCallback, signOutCallback) {
   console.log("Adding Auth Handlers");

@@ -1,8 +1,6 @@
 'use strict';
 
 const app = require('../app-data');
-const display = require('../display');
-// const docsEvents = require('./events');
 
 const createDocSuccess = function(data) {
   console.log("Document Created!");
@@ -22,7 +20,6 @@ const getDocsSuccess = function(data) {
   app.documents = data.documents;
   app.addVersions();
   console.log(app);
-  display.refreshContent();
 };
 
 const success = function(data) {

@@ -2,6 +2,7 @@
 
 const app = require('./app-data');
 const versionDisplay = require('./docs/versions/display');
+const authDisplay = require('./auth/display');
 
 // Adds text to the content div.
 const renderText = function(text){
@@ -24,13 +25,6 @@ const renderNavBar = function() {
   $('.navbar-container').append(navBar());
 };
 
-// Renders the User Sign-in Forms
-const renderAuthForms = function() {
-  console.log("Rendering Auth Forms");
-  let userAuthTemplate = require('./templates/user-auth.handlebars');
-  $('.content-container').append(userAuthTemplate);
-};
-
 // Renders a New Document Form
 const renderNewDocForm = function() {
   let newDocForm = require('./templates/new-doc-form.handlebars');
@@ -48,7 +42,7 @@ const welcome = function() {
   clearContent();
   console.log("Displaying Welcome Screen");
   console.log(app);
-  renderAuthForms();
+  authDisplay.renderAuthForms();
 };
 
 // Refereshes the document list
@@ -74,24 +68,10 @@ const startUp = function() {
   renderNavBar();
 };
 
-// Shows Sign Up Form, Hides Sign In
-const showSignUp = function() {
-  $('#sign-in-form-container').addClass('hide');
-  $('#sign-up-form-container').removeClass('hide');
-};
-
-// Shows Sign In Form, Hides Sign Up
-const showSignIn = function() {
-  $('#sign-up-form-container').addClass('hide');
-  $('#sign-in-form-container').removeClass('hide');
-};
-
 module.exports = {
   startUp,
   welcome,
   homePage,
   renderText,
   refreshContent,
-  showSignUp,
-  showSignIn,
 };
