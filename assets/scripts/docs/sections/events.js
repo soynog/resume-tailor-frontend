@@ -3,6 +3,11 @@
 const sectsApi = require('./api');
 const sectsUi = require('./ui');
 
+// Returns the section level in the document tree
+const getLevel = function(element) {
+  return $(element).parentsUntil('.doc-master-container').length - 2;
+};
+
 const addNewSectHandler = function(callback) {
   $('.new-content-input').keydown(function (event) {
     if(event.keyCode === 13) {
@@ -10,11 +15,13 @@ const addNewSectHandler = function(callback) {
       console.log("New Section Requested");
       let content = $(this).val().trim();
       console.log(content);
+      let level = getLevel(this);
+      console.log(level);
       let container = $(this).closest($('.doc-content-container'));
       let parentId = container.attr('data-parent-id');
       let parentType = container.attr('data-parent-type');
       let section = { content,
-                      style: null,
+                      style: level,
                       parent_id: parentId,
                       parent_type: parentType };
       sectsApi.createSection([sectsUi.createSectSuccess, callback], sectsUi.failure, section);
