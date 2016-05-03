@@ -39,8 +39,7 @@ $doc-border-style: solid $gray-border 1px;
 }
 
 .doc-content-group {
-  display: inline-block;
-  // border: $doc-border-style;
+  // display: inline-block;
 }
 
 .doc-content {
@@ -66,7 +65,7 @@ span.doc-content-input.tag-exclude {
 }
 
 // hierarchical text styling
-.level-1 {
+.level-1, .level--plus {
   font-size: $font-size-h2;
 }
 

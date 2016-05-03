@@ -7,23 +7,20 @@ body {
 }
 
 // Main Page Styling
-div.app-page {
+.app-page {
   background-color: $main-page-color;
-  margin: 20px 50px 0px 50px;
-  padding: 20px;
-  height: auto;
-  min-height: 100vh;
   box-shadow: $lg-shadow;
+  height: auto;
+  margin: 20px 50px 0;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-nav.navbar {
+.navbar {
   background-color: inherit;
   padding: 20px 0;
 }
 
 a {
   color: $text-color-link;
-}
-
-.navbar-brand {
 }
