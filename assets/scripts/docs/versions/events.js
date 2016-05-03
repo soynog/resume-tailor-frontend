@@ -41,17 +41,27 @@ const addVersionModHandlers = function(callback) {
 // Sets the active version of the appropriate doc
 const setActiveVersion = function (docId, versId) {
   console.log("Setting Active Version");
-  app.activeVersion[docId] = parseInt(versId);
+  app.activeVersions[docId] = versId ? parseInt(versId) : null;
 };
 
 const addVersDisplayHandlers = function() {
-  $('a.version-tab').on('click', function (event) {
+  // For Normal Versions
+  $('a.version-tab').on('click', function(event) {
     event.preventDefault();
     console.log("Version Display Requested");
     let docId = $(this).closest('.doc-version-container').attr('data-doc-id');
     let versId = $(this).attr('data-version-id');
     display.renderVersion(docId, versId);
     setActiveVersion(docId, versId);
+  });
+
+  // For Master Version
+  $('a.master-tab').on('click', function(event) {
+    event.preventDefault();
+    console.log("Master Version Display Requested");
+    let docId = $(this).closest('.doc-version-container').attr('data-doc-id');
+    display.renderMaster(docId);
+    setActiveVersion(docId, null);
   });
 };
 

@@ -20,6 +20,7 @@ const updateDocTitleSuccess = function() {
 const getDocsSuccess = function(data) {
   console.log("Documents Loaded!");
   app.documents = data.documents;
+  app.addVersions();
   console.log(app);
   display.refreshContent();
 };
