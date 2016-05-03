@@ -30,8 +30,11 @@ const addDeleteHandlers = function(callback) {
   $('button.delete-document-button').on('click', function(event) {
     console.log("Delete Docs Button Clicked");
     event.preventDefault();
-    let targetId = $(this).data("target");
-    docsApi.deleteDocument([docsUi.deleteDocSuccess, callback], docsUi.failure, targetId);
+    let conf = confirm("Are you sure you want to delete this document?");
+    if(conf) {
+      let targetId = $(this).data("target");
+      docsApi.deleteDocument([docsUi.deleteDocSuccess, callback], docsUi.failure, targetId);
+    }
   });
 };
 
