@@ -19,7 +19,7 @@ const addNewTagHandlers = function(callback) {
   $('.add-tag-button').on('click', function (event) {
     event.preventDefault();
     console.log("New Tag Requested");
-    let docId = $(this).closest($('.doc-content-container')).attr('data-parent-id');
+    let docId = $(this).closest($('.doc-master-container')).attr('data-doc-id');
     let versId = app.activeVersions[docId];
     let sectId = parseInt($(this).closest($('.doc-content-group')).attr('data-sect-id'));
     console.log(versId);
@@ -32,7 +32,7 @@ const addDelTagHandlers = function(callback) {
   $('.delete-tag-button').on('click', function (event) {
     event.preventDefault();
     console.log("Tag Removal Requested");
-    let docId = $(this).closest($('.doc-content-container')).attr('data-parent-id');
+    let docId = $(this).closest($('.doc-master-container')).attr('data-doc-id');
     let versId = app.activeVersions[docId];
     let sectId = parseInt($(this).closest($('.doc-content-group')).attr('data-sect-id'));
     let tagId = getTagId(docId, versId, sectId);
