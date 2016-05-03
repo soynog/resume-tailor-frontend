@@ -7,10 +7,6 @@ const signInSuccess = function(data) {
   app.user = data.user;
   console.log(data.user.email + " signed in successfully.");
   console.log(app);
-
-  // // Display user's documents
-  display.homePage();
-  // docsGetEvents.getUserDocs();
 };
 
 const signUpSuccess = function(data) {
@@ -22,9 +18,6 @@ const signOutSuccess = function() {
   app.user = null;
   console.log("User signed out successfully.");
   console.log(app);
-
-  // Return to welcome Screen
-  display.welcome();
 };
 
 const success = function(data) {

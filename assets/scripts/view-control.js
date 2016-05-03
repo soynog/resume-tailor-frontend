@@ -16,8 +16,8 @@ const userHomePage = function() {
 const welcomePage = function() {
   display.welcome();
 
-  // Create the User Auth event handlers, passing in userHomePage as a callback for when user successfully signs in.
-  authEvents.addHandlers(userHomePage);
+  // Create the User Auth event handlers, passing in userHomePage as a callback for when user successfully signs in, and welcomePage as a callback for signout.
+  authEvents.addHandlers(userHomePage, welcomePage);
 };
 
 const loadView = function() {

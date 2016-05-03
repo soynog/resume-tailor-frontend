@@ -11,7 +11,7 @@ const renderText = function(text){
 
 // Renders a hierarchical document list to the content div.
 const renderDocuments = function(documents) {
-  console.log("Rendering documents...");
+  console.log("Rendering Documents");
   console.log(documents);
   let docListTemplate = require('./templates/doc-list.handlebars');
   $('.content-container').append(docListTemplate({documents}));
@@ -27,14 +27,21 @@ const renderNavBar = function(hide_navbar) {
   }
 };
 
-// Renders the (hidden) modals
-const renderModals = function(hide_modals) {
-  if(hide_modals) {
-    $('.modal-container').empty();
-  } else {
-    let modals = require('./templates/modals.handlebars');
-    $('.modal-container').append(modals());
-  }
+// // Renders the (hidden) modals
+// const renderModals = function(hide_modals) {
+//   if(hide_modals) {
+//     $('.modal-container').empty();
+//   } else {
+//     let modals = require('./templates/modals.handlebars');
+//     $('.modal-container').append(modals());
+//   }
+// };
+
+// Renders the User Sign-in Forms
+const renderAuthForms = function() {
+  console.log("Rendering Auth Forms");
+  let userAuthTemplate = require('./templates/user-auth.handlebars');
+  $('.content-container').append(userAuthTemplate);
 };
 
 // Renders a New Document Form
@@ -47,8 +54,8 @@ const renderNewDocForm = function() {
 const renderVersion = function(docId, versId){
   console.log("Rendering Version");
   let doc = app.documents[(app.documents.findIndex((d) => d.id === parseInt(docId)))];
-  let vers = doc.versions[(doc.versions.findIndex((v) => v.id === parseInt(versId)))];
   console.log(doc);
+  let vers = doc.versions[(doc.versions.findIndex((v) => v.id === parseInt(versId)))];
   console.log(vers);
 
   // Creates a Sorted List of all the included section tags for this version
@@ -92,7 +99,7 @@ const welcome = function() {
   clearContent();
   console.log("Displaying Welcome Screen");
   console.log(app);
-  renderText("Welcome");
+  renderAuthForms();
 };
 
 // Refereshes the document list
@@ -116,7 +123,19 @@ const startUp = function() {
   console.log("Starting App");
   console.log(app);
   renderNavBar();
-  renderModals();
+  // renderModals();
+};
+
+// Shows Sign Up Form, Hides Sign In
+const showSignUp = function() {
+  $('#sign-in-form-container').addClass('hide');
+  $('#sign-up-form-container').removeClass('hide');
+};
+
+// Shows Sign In Form, Hides Sign Up
+const showSignIn = function() {
+  $('#sign-up-form-container').addClass('hide');
+  $('#sign-in-form-container').removeClass('hide');
 };
 
 module.exports = {
@@ -126,4 +145,6 @@ module.exports = {
   renderText,
   refreshContent,
   renderVersion,
+  showSignUp,
+  showSignIn,
 };
