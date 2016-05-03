@@ -3,7 +3,7 @@
 const versApi = require('./api');
 const versUi = require('./ui');
 const app = require('../../app-data');
-const display = require('../../display');
+const display = require('./display');
 
 const addNewVersHandler = function(callback) {
   $('.new-version-input').keydown(function (event) {
