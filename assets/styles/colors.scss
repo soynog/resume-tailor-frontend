@@ -1,0 +1,30 @@
+// Bootstrap colors for reference
+// $gray-base:              #000 !default;
+// $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+// $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+// $gray:                   lighten($gray-base, 33.5%) !default; // #555
+// $gray-light:             lighten($gray-base, 46.7%) !default; // #777
+// $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+//
+// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+
+
+$sky-blue: #bbe9fb;
+$off-black: #040404;
+$dark-blue: $brand-primary;
+$off-white: #fffefc;
+$gray-med-lighter: lighten($gray-base, 65%);
+
+// background colors
+$background-color: $sky-blue;
+$main-page-color: $off-white;
+
+// text colors
+$text-color-main: $off-black;
+$text-color-link: $dark-blue;
+$text-color-secondary: $gray-med-lighter;
+
+// shadow effects
+$shadow: #888;
+$sm-shadow: 1px 1px 4px $shadow;
+$lg-shadow: 2px 2px 12px $shadow;

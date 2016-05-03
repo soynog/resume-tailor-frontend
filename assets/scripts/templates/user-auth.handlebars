@@ -1,0 +1,56 @@
+
+<!-- Sign In Form -->
+<div id="sign-in-form-container">
+  <form class="form-inline" id="sign-in-form">
+    <div class="form-group">
+      <label class="sr-only" for="sign-in-email">email address</label>
+      <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="email address">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="sign-in-password">password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="password">
+    </div>
+    <!--<div class="checkbox">
+      <label>
+        <input type="checkbox"> Remember me
+      </label>
+    </div>-->
+    <button type="submit" class="btn btn-default">Sign In</button>
+  </form>
+
+  <div>
+    Don't have an account?
+    <button class="btn btn-link" id="sign-up-form-request">Sign Up</button>
+  </div>
+</div>
+<!-- End Sign In Form -->
+
+<!-- Sign Up Form -->
+<div id="sign-up-form-container" class="hide">
+  <form class="form-inline" id="sign-up-form">
+    <div class="form-group">
+      <label class="sr-only" for="sign-up-email">email address</label>
+      <input type="email" name="credentials[email]" class="form-control" id="sign-up-email" placeholder="email address">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="sign-up-password">password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="sign-up-password" placeholder="password">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="sign-up-password-conf">confirm password</label>
+      <input type="password" name="credentials[password]" class="form-control" id="sign-up-password-conf" placeholder="confirm password">
+    </div>
+    <!--<div class="checkbox">
+      <label>
+        <input type="checkbox"> Remember me
+      </label>
+    </div>-->
+    <button type="submit" class="btn btn-default">Sign Up</button>
+  </form>
+
+  <div>
+    Already Have an Account?
+    <button class="btn btn-link" id="sign-up-cancel">Sign In</button>
+  </div>
+</div>
+<!-- End Sign Up Form -->

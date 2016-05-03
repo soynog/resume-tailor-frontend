@@ -1,0 +1,29 @@
+
+// Background
+body {
+  background-color: $background-color;
+  color: $text-color-main;
+  font-family: $font-family-serif;
+}
+
+// Main Page Styling
+div.app-page {
+  background-color: $main-page-color;
+  margin: 20px 50px 0px 50px;
+  padding: 20px;
+  height: auto;
+  min-height: 100vh;
+  box-shadow: $lg-shadow;
+}
+
+nav.navbar {
+  background-color: inherit;
+  padding: 20px 0;
+}
+
+a {
+  color: $text-color-link;
+}
+
+.navbar-brand {
+}

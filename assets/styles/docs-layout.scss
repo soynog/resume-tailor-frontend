@@ -1,0 +1,35 @@
+.panel-doc {
+  background-color: inherit;
+  box-shadow: $sm-shadow;
+  border-radius: 0;
+  text-align: left;
+}
+
+.delete-document-button {
+  float: right;
+}
+
+.doc-title,.doc-content {
+  display: inline-block;
+}
+
+.doc-content-container {
+  margin: 10px;
+  padding-left: 5px;
+  border-left: solid #ddddff 1px;
+}
+
+.doc-content-row {
+  border-bottom: solid #ddddff 1px;
+}
+
+
+//excluded sections
+span.doc-content-input {
+  color: $text-color-secondary;
+}
+
+// included sections
+span.doc-content-input.tag-include {
+  color: $text-color-main;
+}
