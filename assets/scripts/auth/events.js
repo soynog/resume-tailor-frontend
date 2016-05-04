@@ -7,6 +7,7 @@ const display = require('./display');
 
 const addHandlers = function(signInCallback, signOutCallback) {
   console.log("Adding Auth Handlers");
+
   $('#sign-up-form').on('submit', function (event) {
     event.preventDefault();
     console.log("Sign Up Requested");
@@ -21,14 +22,8 @@ const addHandlers = function(signInCallback, signOutCallback) {
       authUi.failure,
       data
     );
-    // authApi.signIn(
-    //   [authUi.signInSuccess,
-    //     authApi.signUp(
-    //     authUi.signUpSuccess,
-    //     authUi.failure, data), signInCallback
-    //   ],
-    //       authUi.failure, data);
   });
+
   $('#sign-in-form').on('submit', function (event) {
     event.preventDefault();
     console.log("Sign In Requested");
@@ -36,10 +31,18 @@ const addHandlers = function(signInCallback, signOutCallback) {
     console.log(data);
     authApi.signIn([authUi.signInSuccess, signInCallback], authUi.failure, data);
   });
+
   $('#sign-out-button').on('click', function (event) {
     console.log("Sign Out Button Clicked");
     event.preventDefault();
     authApi.signOut([authUi.signOutSuccess, signOutCallback], authUi.failure);
+  });
+
+  $('#change-pw-form').on('submit', function (event) {
+    console.log("Change Password Requested");
+    event.preventDefault();
+    let data = getFormFields(this);
+    authApi.changePW([authUi.changePWSuccess], authUi.failure, data);
   });
 
   // Toggle Between Sign In and Sign Up forms
@@ -51,6 +54,7 @@ const addHandlers = function(signInCallback, signOutCallback) {
     event.preventDefault();
     display.showSignIn();
   });
+
 };
 
 module.exports = {
