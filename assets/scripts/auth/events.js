@@ -12,9 +12,13 @@ const addHandlers = function(signInCallback, signOutCallback) {
     console.log("Sign Up Requested");
     let data = getFormFields(this);
     console.log(data);
-    authApi.signUp( authApi.signIn( authUi.signUpSuccess,
-                                    authUi.failure, data),
-                    authUi.failure, data);
+    authApi.signIn(
+      [authUi.signInSuccess,
+        authApi.signUp(
+        authUi.signUpSuccess,
+        authUi.failure, data), signInCallback
+      ],
+          authUi.failure, data);
   });
   $('#sign-in-form').on('submit', function (event) {
     event.preventDefault();

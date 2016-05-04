@@ -3,6 +3,8 @@
 const app = require('../app-data');
 
 const signUp = (success, failure, data) => {
+  console.log("Requesting Sign-up");
+  console.log(data);
   $.ajax({
     method: 'POST',
     url: app.api + '/sign-up',
@@ -12,6 +14,8 @@ const signUp = (success, failure, data) => {
 };
 
 const signIn = (success, failure, data) => {
+  console.log("Requesting Sign-in");
+  console.log(data);
   $.ajax({
     method: 'POST',
     url: app.api + '/sign-in',
@@ -21,6 +25,7 @@ const signIn = (success, failure, data) => {
 };
 
 const signOut = (success, failure) => {
+  console.log("Requesting Sign-out");
   console.log(app);
   if(app.user) {
     $.ajax({
