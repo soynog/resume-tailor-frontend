@@ -19,8 +19,23 @@ const showSignIn = function() {
   $('#sign-in-form-container').removeClass('hide');
 };
 
+
+// Shows the user nav buttons
+const showUserNavs = function() {
+  $('#sign-out-button').removeClass('hide');
+  $('#change-pw-request-button').removeClass('hide');
+};
+
+// Hides the user nav buttons
+const hideUserNavs = function() {
+  $('#sign-out-button').addClass('hide');
+  $('#change-pw-request-button').addClass('hide');
+};
+
 module.exports = {
   renderAuthForms,
   showSignUp,
   showSignIn,
+  showUserNavs,
+  hideUserNavs,
 };

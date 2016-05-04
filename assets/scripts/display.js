@@ -42,10 +42,11 @@ const welcome = function() {
   clearContent();
   console.log("Displaying Welcome Screen");
   console.log(app);
+  authDisplay.hideUserNavs();
   authDisplay.renderAuthForms();
 };
 
-// Refereshes the document list
+// Refreshes the document list
 const refreshContent = function() {
   clearContent();
   renderDocuments(app.documents);
@@ -58,6 +59,7 @@ const homePage = function() {
   clearContent();
   console.log("Displaying Home Page");
   console.log(app);
+  authDisplay.showUserNavs();
   refreshContent();
 };
 

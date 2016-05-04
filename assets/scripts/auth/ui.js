@@ -20,6 +20,11 @@ const signOutSuccess = function() {
   console.log(app);
 };
 
+const changePWSuccess = function() {
+  console.log("Successfully changed password!");
+  $('#change-pw-modal').modal('hide');
+};
+
 const success = function(data) {
   console.log(data);
 };
@@ -35,4 +40,5 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   signUpSuccess,
+  changePWSuccess,
 };

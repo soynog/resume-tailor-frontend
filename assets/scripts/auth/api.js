@@ -39,8 +39,25 @@ const signOut = (success, failure) => {
   }
 };
 
+const changePW = (success, failure, data) => {
+  console.log("Requesting Password Change");
+  console.log(data);
+  if(app.user) {
+    $.ajax({
+      method: 'PATCH',
+      url: app.api + '/change-password/' + app.user.id,
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      data,
+    }).done(success)
+    .fail(failure);
+  }
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
+  changePW,
 };
