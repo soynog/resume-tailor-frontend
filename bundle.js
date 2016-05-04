@@ -1666,7 +1666,14 @@ webpackJsonp([0],[
 	    console.log("Sign Up Requested");
 	    var data = getFormFields(this);
 	    console.log(data);
-	    authApi.signIn([authUi.signInSuccess, authApi.signUp(authUi.signUpSuccess, authUi.failure, data), signInCallback], authUi.failure, data);
+	    authApi.signIn([authApi.signUp(authUi.signUpSuccess, authUi.failure, data), authUi.signInSuccess, signInCallback], authUi.failure, data);
+	    // authApi.signIn(
+	    //   [authUi.signInSuccess,
+	    //     authApi.signUp(
+	    //     authUi.signUpSuccess,
+	    //     authUi.failure, data), signInCallback
+	    //   ],
+	    //       authUi.failure, data);
 	  });
 	  $('#sign-in-form').on('submit', function (event) {
 	    event.preventDefault();
@@ -1676,6 +1683,7 @@ webpackJsonp([0],[
 	    authApi.signIn([authUi.signInSuccess, signInCallback], authUi.failure, data);
 	  });
 	  $('#sign-out-button').on('click', function (event) {
+	    console.log("Sign Out Button Clicked");
 	    event.preventDefault();
 	    authApi.signOut([authUi.signOutSuccess, signOutCallback], authUi.failure);
 	  });
@@ -1814,13 +1822,14 @@ webpackJsonp([0],[
 /* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(4);
 
 	var signInSuccess = function signInSuccess(data) {
-	  app.user = data.user;
 	  console.log(data.user.email + " signed in successfully.");
+	  console.log(data);
+	  app.user = data.user;
 	  console.log(app);
 	};
 
@@ -1830,6 +1839,7 @@ webpackJsonp([0],[
 
 	var signOutSuccess = function signOutSuccess() {
 	  app.user = null;
+	  $('#sign-out-button').off('click');
 	  console.log("User signed out successfully.");
 	  console.log(app);
 	};
@@ -1850,6 +1860,7 @@ webpackJsonp([0],[
 	  signOutSuccess: signOutSuccess,
 	  signUpSuccess: signUpSuccess
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 38 */
