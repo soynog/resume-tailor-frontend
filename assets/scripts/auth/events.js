@@ -12,13 +12,22 @@ const addHandlers = function(signInCallback, signOutCallback) {
     console.log("Sign Up Requested");
     let data = getFormFields(this);
     console.log(data);
-    authApi.signIn(
-      [authUi.signInSuccess,
-        authApi.signUp(
+    authApi.signIn([
+      authApi.signUp(
         authUi.signUpSuccess,
-        authUi.failure, data), signInCallback
-      ],
-          authUi.failure, data);
+        authUi.failure,
+        data
+      ),authUi.signInSuccess,signInCallback],
+      authUi.failure,
+      data
+    );
+    // authApi.signIn(
+    //   [authUi.signInSuccess,
+    //     authApi.signUp(
+    //     authUi.signUpSuccess,
+    //     authUi.failure, data), signInCallback
+    //   ],
+    //       authUi.failure, data);
   });
   $('#sign-in-form').on('submit', function (event) {
     event.preventDefault();
@@ -28,6 +37,7 @@ const addHandlers = function(signInCallback, signOutCallback) {
     authApi.signIn([authUi.signInSuccess, signInCallback], authUi.failure, data);
   });
   $('#sign-out-button').on('click', function (event) {
+    console.log("Sign Out Button Clicked");
     event.preventDefault();
     authApi.signOut([authUi.signOutSuccess, signOutCallback], authUi.failure);
   });

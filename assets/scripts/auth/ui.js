@@ -3,8 +3,9 @@
 const app = require('../app-data');
 
 const signInSuccess = function(data) {
-  app.user = data.user;
   console.log(data.user.email + " signed in successfully.");
+  console.log(data);
+  app.user = data.user;
   console.log(app);
 };
 
@@ -14,6 +15,7 @@ const signUpSuccess = function(data) {
 
 const signOutSuccess = function() {
   app.user = null;
+  $('#sign-out-button').off('click');
   console.log("User signed out successfully.");
   console.log(app);
 };
