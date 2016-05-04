@@ -158,10 +158,11 @@ webpackJsonp([0],[
 	  clearContent();
 	  console.log("Displaying Welcome Screen");
 	  console.log(app);
+	  authDisplay.hideUserNavs();
 	  authDisplay.renderAuthForms();
 	};
 
-	// Refereshes the document list
+	// Refreshes the document list
 	var refreshContent = function refreshContent() {
 	  clearContent();
 	  renderDocuments(app.documents);
@@ -174,6 +175,7 @@ webpackJsonp([0],[
 	  clearContent();
 	  console.log("Displaying Home Page");
 	  console.log(app);
+	  authDisplay.showUserNavs();
 	  refreshContent();
 	};
 
@@ -297,10 +299,24 @@ webpackJsonp([0],[
 	  $('#sign-in-form-container').removeClass('hide');
 	};
 
+	// Shows the user nav buttons
+	var showUserNavs = function showUserNavs() {
+	  $('#sign-out-button').removeClass('hide');
+	  $('#change-pw-request-button').removeClass('hide');
+	};
+
+	// Hides the user nav buttons
+	var hideUserNavs = function hideUserNavs() {
+	  $('#sign-out-button').addClass('hide');
+	  $('#change-pw-request-button').addClass('hide');
+	};
+
 	module.exports = {
 	  renderAuthForms: renderAuthForms,
 	  showSignUp: showSignUp,
-	  showSignIn: showSignIn
+	  showSignIn: showSignIn,
+	  showUserNavs: showUserNavs,
+	  hideUserNavs: hideUserNavs
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -311,7 +327,7 @@ webpackJsonp([0],[
 	var Handlebars = __webpack_require__(9);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "\n<!-- Sign In Form -->\n<div id=\"sign-in-form-container\">\n  <form class=\"form-inline\" id=\"sign-in-form\">\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-in-email\">email address</label>\n      <input type=\"email\" name=\"credentials[email]\" class=\"form-control\" id=\"sign-in-email\" placeholder=\"email address\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-in-password\">password</label>\n      <input type=\"password\" name=\"credentials[password]\" class=\"form-control\" id=\"sign-in-password\" placeholder=\"password\">\n    </div>\n    <!--<div class=\"checkbox\">\n      <label>\n        <input type=\"checkbox\"> Remember me\n      </label>\n    </div>-->\n    <button type=\"submit\" class=\"btn btn-default\">Sign In</button>\n  </form>\n\n  <div>\n    Don't have an account?\n    <button class=\"btn btn-link\" id=\"sign-up-form-request\">Sign Up</button>\n  </div>\n</div>\n<!-- End Sign In Form -->\n\n<!-- Sign Up Form -->\n<div id=\"sign-up-form-container\" class=\"hide\">\n  <form class=\"form-inline\" id=\"sign-up-form\">\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-email\">email address</label>\n      <input type=\"email\" name=\"credentials[email]\" class=\"form-control\" id=\"sign-up-email\" placeholder=\"email address\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-password\">password</label>\n      <input type=\"password\" name=\"credentials[password]\" class=\"form-control\" id=\"sign-up-password\" placeholder=\"password\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-password-conf\">confirm password</label>\n      <input type=\"password\" name=\"credentials[password_confirmation]\" class=\"form-control\" id=\"sign-up-password-conf\" placeholder=\"confirm password\">\n    </div>\n    <!--<div class=\"checkbox\">\n      <label>\n        <input type=\"checkbox\"> Remember me\n      </label>\n    </div>-->\n    <button type=\"submit\" class=\"btn btn-default\">Sign Up</button>\n  </form>\n\n  <div>\n    Already Have an Account?\n    <button class=\"btn btn-link\" id=\"sign-up-cancel\">Sign In</button>\n  </div>\n</div>\n<!-- End Sign Up Form -->\n";
+	    return "\n<!-- Sign In Form -->\n<div id=\"sign-in-form-container\">\n  <form class=\"form-inline\" id=\"sign-in-form\">\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-in-email\">email address</label>\n      <input type=\"email\" name=\"credentials[email]\" class=\"form-control\" id=\"sign-in-email\" placeholder=\"email address\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-in-password\">password</label>\n      <input type=\"password\" name=\"credentials[password]\" class=\"form-control\" id=\"sign-in-password\" placeholder=\"password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Sign In</button>\n  </form>\n\n  <div>\n    Don't have an account?\n    <button class=\"btn btn-link\" id=\"sign-up-form-request\">Sign Up</button>\n  </div>\n</div>\n<!-- End Sign In Form -->\n\n<!-- Sign Up Form -->\n<div id=\"sign-up-form-container\" class=\"hide\">\n  <form class=\"form-inline\" id=\"sign-up-form\">\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-email\">email address</label>\n      <input type=\"email\" name=\"credentials[email]\" class=\"form-control\" id=\"sign-up-email\" placeholder=\"email address\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-password\">password</label>\n      <input type=\"password\" name=\"credentials[password]\" class=\"form-control\" id=\"sign-up-password\" placeholder=\"password\">\n    </div>\n    <div class=\"form-group\">\n      <label class=\"sr-only\" for=\"sign-up-password-conf\">confirm password</label>\n      <input type=\"password\" name=\"credentials[password_confirmation]\" class=\"form-control\" id=\"sign-up-password-conf\" placeholder=\"confirm password\">\n    </div>\n    <button type=\"submit\" class=\"btn btn-default\">Sign Up</button>\n  </form>\n\n  <div>\n    Already Have an Account?\n    <button class=\"btn btn-link\" id=\"sign-up-cancel\">Sign In</button>\n  </div>\n</div>\n<!-- End Sign Up Form -->\n";
 	},"useData":true});
 
 /***/ },
@@ -1633,7 +1649,7 @@ webpackJsonp([0],[
 	var Handlebars = __webpack_require__(9);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "<nav class=\"navbar\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">RezTailor</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <!--<li><a href=\"#\">Link</a></li>-->\n        <!--<li>\n          <a href=\"#\" data-toggle=\"modal\" data-target=\"#sign-in-modal\">Sign In</a>\n        </li> -->\n        <li>\n          <a href=\"#\" id=\"sign-out-button\">Sign Out</a>\n        </li>\n        <!--<li class=\"dropdown\">\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Sign In  <span class=\"caret\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li><a href=\"#\">Action</a></li>\n            <li><a href=\"#\">Another action</a></li>\n            <li><a href=\"#\">Something else here</a></li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li><a href=\"#\">Separated link</a></li>\n          </ul>\n        </li>-->\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n";
+	    return "<nav class=\"navbar\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">RezTailor</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li>\n          <a href=\"#\" id=\"change-pw-request-button\" class=\"hide\" data-toggle=\"modal\" data-target=\"#change-pw-modal\">Change Password</a>\n        </li>\n        <li>\n          <a href=\"#\" id=\"sign-out-button\" class=\"hide\">Sign Out</a>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<!-- Change PW Modal -->\n<div class=\"modal fade\" id=\"change-pw-modal\" tabindex=\"-1\" role=\"dialog\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <form class=\"form-inline\" id=\"change-pw-form\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n          <h4 class=\"modal-title\">Change Password</h4>\n        </div>\n        <div class=\"modal-body\">\n          <div class=\"form-group\">\n            <label class=\"sr-only\" for=\"change-pw-old\">old password</label>\n            <input type=\"password\" name=\"passwords[old]\" class=\"form-control\" id=\"change-pw-old\" placeholder=\"old password\">\n          </div>\n          <div class=\"form-group\">\n            <label class=\"sr-only\" for=\"change-pw-new\">new password</label>\n            <input type=\"password\" name=\"passwords[new]\" class=\"form-control\" id=\"change-pw-new\" placeholder=\"new password\">\n          </div>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancel-change-pw-button\">Cancel</button>\n          <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n        </div>\n      </form>\n    </div><!-- /.modal-content -->\n  </div><!-- /.modal-dialog -->\n</div><!-- /.modal -->\n";
 	},"useData":true});
 
 /***/ },
@@ -1661,20 +1677,15 @@ webpackJsonp([0],[
 
 	var addHandlers = function addHandlers(signInCallback, signOutCallback) {
 	  console.log("Adding Auth Handlers");
+
 	  $('#sign-up-form').on('submit', function (event) {
 	    event.preventDefault();
 	    console.log("Sign Up Requested");
 	    var data = getFormFields(this);
 	    console.log(data);
 	    authApi.signIn([authApi.signUp(authUi.signUpSuccess, authUi.failure, data), authUi.signInSuccess, signInCallback], authUi.failure, data);
-	    // authApi.signIn(
-	    //   [authUi.signInSuccess,
-	    //     authApi.signUp(
-	    //     authUi.signUpSuccess,
-	    //     authUi.failure, data), signInCallback
-	    //   ],
-	    //       authUi.failure, data);
 	  });
+
 	  $('#sign-in-form').on('submit', function (event) {
 	    event.preventDefault();
 	    console.log("Sign In Requested");
@@ -1682,10 +1693,18 @@ webpackJsonp([0],[
 	    console.log(data);
 	    authApi.signIn([authUi.signInSuccess, signInCallback], authUi.failure, data);
 	  });
+
 	  $('#sign-out-button').on('click', function (event) {
 	    console.log("Sign Out Button Clicked");
 	    event.preventDefault();
 	    authApi.signOut([authUi.signOutSuccess, signOutCallback], authUi.failure);
+	  });
+
+	  $('#change-pw-form').on('submit', function (event) {
+	    console.log("Change Password Requested");
+	    event.preventDefault();
+	    var data = getFormFields(this);
+	    authApi.changePW([authUi.changePWSuccess], authUi.failure, data);
 	  });
 
 	  // Toggle Between Sign In and Sign Up forms
@@ -1811,10 +1830,26 @@ webpackJsonp([0],[
 	  }
 	};
 
+	var changePW = function changePW(success, failure, data) {
+	  console.log("Requesting Password Change");
+	  console.log(data);
+	  if (app.user) {
+	    $.ajax({
+	      method: 'PATCH',
+	      url: app.api + '/change-password/' + app.user.id,
+	      headers: {
+	        Authorization: 'Token token=' + app.user.token
+	      },
+	      data: data
+	    }).done(success).fail(failure);
+	  }
+	};
+
 	module.exports = {
 	  signUp: signUp,
 	  signIn: signIn,
-	  signOut: signOut
+	  signOut: signOut,
+	  changePW: changePW
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -1844,6 +1879,11 @@ webpackJsonp([0],[
 	  console.log(app);
 	};
 
+	var changePWSuccess = function changePWSuccess() {
+	  console.log("Successfully changed password!");
+	  $('#change-pw-modal').modal('hide');
+	};
+
 	var success = function success(data) {
 	  console.log(data);
 	};
@@ -1858,7 +1898,8 @@ webpackJsonp([0],[
 	  success: success,
 	  signInSuccess: signInSuccess,
 	  signOutSuccess: signOutSuccess,
-	  signUpSuccess: signUpSuccess
+	  signUpSuccess: signUpSuccess,
+	  changePWSuccess: changePWSuccess
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
