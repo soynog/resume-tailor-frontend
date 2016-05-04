@@ -11,8 +11,9 @@ body {
   background-color: $main-page-color;
   box-shadow: $lg-shadow;
   height: auto;
-  margin: 20px 50px 0;
+  margin: 20px auto 0;
   min-height: 100vh;
+  max-width: 900px;
   padding: 20px;
 }
 

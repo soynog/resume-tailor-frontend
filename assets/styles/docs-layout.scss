@@ -5,8 +5,8 @@ $doc-border-style: solid $gray-border 1px;
 // DOCUMENT CONTAINER
 .panel-doc {
   background-color: inherit;
-  box-shadow: $sm-shadow;
   border-radius: 0;
+  box-shadow: $sm-shadow;
   text-align: left;
 }
 
@@ -52,32 +52,35 @@ $doc-border-style: solid $gray-border 1px;
   display: inline-block;
 }
 
-//excluded sections
-span.doc-content-input {
+//included sections
+.doc-content-input {
   color: $text-color-main;
 }
 
-// included sections
-span.doc-content-input.tag-exclude {
+//excluded sections
+.doc-content-input.tag-exclude {
   color: $text-color-secondary;
 }
 
 // new content input
 .new-content-input {
-  min-width: 100px;
   background-color: inherit;
   border: 0;
+  min-width: 100px;
 }
 
 // hierarchical text styling
-.level-1, .level--plus {
+.level-1,
+.level--plus {
   font-size: $font-size-h2;
 }
 
-.level-2, .level-1-plus {
+.level-2,
+.level-1-plus {
   font-size: $font-size-h3;
 }
 
-.level-3, .level-2-plus {
+.level-3,
+.level-2-plus {
   font-size: $font-size-h4;
 }

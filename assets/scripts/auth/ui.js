@@ -10,7 +10,6 @@ const signInSuccess = function(data) {
 
 const signUpSuccess = function(data) {
   console.log("Successfully signed up " + data.user.email);
-  signInSuccess(data);
 };
 
 const signOutSuccess = function() {
